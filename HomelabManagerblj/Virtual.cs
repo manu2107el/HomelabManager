@@ -4,26 +4,41 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HomelabManagerblj
 {
     public class Virtual
     {
-        Physical Mother;
+        public Physical Mother;
         public string IP { get;  set; }
         public string Portal { get;  set; }
+        public string PortalLink { get; set; }
         public string Name { get;  set; }
-        public int Status { get; private set; }
+        public bool IgnoreIP { get; set; }
+        public bool IgnorePortal { get; set; }
+        public string Status { get;  set; }
+        public int StatusIconIndex = 0;
         public Virtual()
         {
             
         }
         public void StatusUpdate()
-        {
+        { 
+            SelfRepair();
             bool PingIP = false;
             bool PingPortal = false;
             bool IPSuccess = false;
             bool PortalSuccess = false;
+
+            if (!IgnoreIP)
+            {
+                PingIP = true;
+            }
+            if (!IgnorePortal)
+            {
+                PingPortal = true;
+            }
 
             if (PingIP)
             {
@@ -44,38 +59,65 @@ namespace HomelabManagerblj
             {
                 if (IPSuccess)
                 {
-                    Status = 1;
+                    Status = "Running";
+                    StatusIconIndex = 1;
                 }
                 if (IPSuccess == false)
                 {
-                    Status = 3;
+                    Status = "DOWN";
+                    StatusIconIndex = 3;
                 }
             }
             if (PingIP == false && PingPortal)
             {
                 if (PortalSuccess)
                 {
-                    Status = 1;
+                    Status = "Running";
+                    StatusIconIndex = 1;
                 }
                 if (PortalSuccess == false)
                 {
-                    Status = 3;
+                    Status = "DOWN";
+                    StatusIconIndex = 3;
                 }
             }
             if (PingPortal && PingIP)
             {
                 if (PortalSuccess || IPSuccess)
                 {
-                    Status = 2;
+                    Status = "Partialy Running";
+                    StatusIconIndex = 2;
                 }
                 if (IPSuccess && PortalSuccess)
                 {
-                    Status = 1;
+                    Status = "Running";
+                    StatusIconIndex = 1;
                 }
                 if (IPSuccess == false && PortalSuccess == false)
                 {
-                    Status = 3;
+                    Status = "DOWN";
+                    StatusIconIndex = 3;
                 }
+            }
+        }
+        public void SelfRepair()
+        {
+            PortalLink = Portal;
+            if (IgnorePortal)
+            {
+                Portal = "None";
+                PortalLink = "None";
+            }
+            if (!IgnorePortal)
+            {
+                if (!PortalLink.Contains("http"))
+                {
+                    PortalLink = "http://" + Portal;
+                }
+            }
+            if (IgnoreIP)
+            {
+                IP = "None";
             }
         }
         public static bool PingHost(string nameOrAddress)
