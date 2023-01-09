@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -102,38 +103,47 @@ namespace HomelabManagerblj
         }
         public void SelfRepair()
         {
-            PortalLink = Portal;
+            if (!PortalLink.Contains("http://") && !PortalLink.Contains("https://"))
+            {
+                PortalLink = "http://" + PortalLink;
+            }
+            GetAddressFromLink(PortalLink);
             if (IgnorePortal)
             {
                 Portal = "None";
                 PortalLink = "None";
-            }
-            if (!IgnorePortal)
-            {
-                if (!PortalLink.Contains("http"))
-                {
-                    PortalLink = "http://" + Portal;
-                }
             }
             if (IgnoreIP)
             {
                 IP = "None";
             }
         }
+        public void GetAddressFromLink(string portalLink)
+        {
+            Match match = Regex.Match(portalLink, @"(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})|(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}");
+
+            if (match.Success)
+            {
+                Portal = match.Value;
+            }
+        }
         public static bool PingHost(string nameOrAddress)
         {
             bool pingable = false;
+
             Ping pinger = null;
 
             try
             {
                 pinger = new Ping();
-                PingReply reply = pinger.Send(nameOrAddress);
+                PingOptions options = new PingOptions(50, true);
+                PingReply reply = pinger.Send(nameOrAddress, 1000, new byte[32], options);
                 pingable = reply.Status == IPStatus.Success;
             }
             catch (PingException)
             {
-                // Discard PingExceptions and return false;
+                // Abort on the first failed ping attempt
+               
             }
             finally
             {

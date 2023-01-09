@@ -10,9 +10,8 @@ namespace HomelabManagerblj
 {
     public class Config
     {
-        public string PhysicalSaveFile;
-        public string VirtualSaveFile;
-
-        
+        public string PhysicalSaveFile = "";
+        public string VirtualSaveFile = "";
+        public string overviewPage = "";
     }
 }

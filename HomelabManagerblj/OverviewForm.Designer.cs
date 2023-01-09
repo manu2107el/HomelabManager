@@ -33,10 +33,11 @@
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Virtual Systems", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OverviewForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.OpenSettings = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.DetailViewButton = new System.Windows.Forms.Button();
             this.DeleteSystemsButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.OpenSettingsButton = new System.Windows.Forms.Button();
             this.KumaPanelButton = new System.Windows.Forms.Button();
             this.systemList = new System.Windows.Forms.ListView();
             this.NameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,6 +45,7 @@
             this.ManagementPortalColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MotherCollum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.CreateNewButton = new System.Windows.Forms.Button();
             this.NoneBox2 = new System.Windows.Forms.CheckBox();
@@ -58,23 +60,34 @@
             this.NewName = new System.Windows.Forms.TextBox();
             this.NewVirtualRadioButton = new System.Windows.Forms.RadioButton();
             this.NewPhsyicalRadioButton = new System.Windows.Forms.RadioButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.OpenSettings);
             this.panel1.Controls.Add(this.saveButton);
             this.panel1.Controls.Add(this.DetailViewButton);
             this.panel1.Controls.Add(this.DeleteSystemsButton);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.OpenSettingsButton);
             this.panel1.Controls.Add(this.KumaPanelButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1251, 65);
             this.panel1.TabIndex = 0;
+            // 
+            // OpenSettings
+            // 
+            this.OpenSettings.Location = new System.Drawing.Point(570, 14);
+            this.OpenSettings.Name = "OpenSettings";
+            this.OpenSettings.Size = new System.Drawing.Size(114, 35);
+            this.OpenSettings.TabIndex = 5;
+            this.OpenSettings.Text = "Settings";
+            this.OpenSettings.UseVisualStyleBackColor = true;
+            this.OpenSettings.Click += new System.EventHandler(this.OpenSettings_Click);
             // 
             // saveButton
             // 
@@ -106,15 +119,15 @@
             this.DeleteSystemsButton.UseVisualStyleBackColor = true;
             this.DeleteSystemsButton.Click += new System.EventHandler(this.DeleteSystemsButton_Click);
             // 
-            // button1
+            // OpenSettingsButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 35);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OpenSettingsButton.Location = new System.Drawing.Point(12, 14);
+            this.OpenSettingsButton.Name = "OpenSettingsButton";
+            this.OpenSettingsButton.Size = new System.Drawing.Size(121, 35);
+            this.OpenSettingsButton.TabIndex = 1;
+            this.OpenSettingsButton.Text = "Refresh";
+            this.OpenSettingsButton.UseVisualStyleBackColor = true;
+            this.OpenSettingsButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // KumaPanelButton
             // 
@@ -122,7 +135,7 @@
             this.KumaPanelButton.Name = "KumaPanelButton";
             this.KumaPanelButton.Size = new System.Drawing.Size(148, 39);
             this.KumaPanelButton.TabIndex = 0;
-            this.KumaPanelButton.Text = "Launch Kuma Panel";
+            this.KumaPanelButton.Text = "Launch Overview Panel";
             this.KumaPanelButton.UseVisualStyleBackColor = true;
             this.KumaPanelButton.Click += new System.EventHandler(this.KumaPanelButton_Click);
             // 
@@ -182,6 +195,15 @@
             this.MotherCollum.Text = "Mother";
             this.MotherCollum.Width = 104;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "expired.png");
+            this.imageList1.Images.SetKeyName(1, "status_connected.png");
+            this.imageList1.Images.SetKeyName(2, "status_lagging.png");
+            this.imageList1.Images.SetKeyName(3, "status_disconnected.png");
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.CreateNewButton);
@@ -202,6 +224,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(306, 492);
             this.panel2.TabIndex = 4;
+   
             // 
             // CreateNewButton
             // 
@@ -323,15 +346,6 @@
             this.NewPhsyicalRadioButton.UseVisualStyleBackColor = true;
             this.NewPhsyicalRadioButton.Click += new System.EventHandler(this.NewPhsyicalRadioButton_CheckedChanged);
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "expired.png");
-            this.imageList1.Images.SetKeyName(1, "status_connected.png");
-            this.imageList1.Images.SetKeyName(2, "status_lagging.png");
-            this.imageList1.Images.SetKeyName(3, "status_disconnected.png");
-            // 
             // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,7 +369,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button KumaPanelButton;
         private System.Windows.Forms.ListView systemList;
-        private System.Windows.Forms.ColumnHeader NameColumn;
         private System.Windows.Forms.ColumnHeader IPColumn;
         private System.Windows.Forms.ColumnHeader ManagementPortalColumn;
         private System.Windows.Forms.ColumnHeader StatusColumn;
@@ -374,11 +387,13 @@
         private System.Windows.Forms.RadioButton NewVirtualRadioButton;
         private System.Windows.Forms.RadioButton NewPhsyicalRadioButton;
         private System.Windows.Forms.ColumnHeader MotherCollum;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OpenSettingsButton;
         private System.Windows.Forms.Button DeleteSystemsButton;
         private System.Windows.Forms.Button DetailViewButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.ColumnHeader NameColumn;
+        private System.Windows.Forms.Button OpenSettings;
     }
 }
 

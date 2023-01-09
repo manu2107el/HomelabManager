@@ -24,15 +24,72 @@ namespace HomelabManagerblj
 
         private void DetailForm_Load(object sender, EventArgs e)
         {
+            Refresh();
+            if (physical.IgnoreIP)
+            {
+                DisableIPCheckbox.Checked = true;
+            }
+            if (physical.IgnorePortal)
+            {
+                DisableAdminPanelCheckbox.Checked = true;
+            }
+        }
+        public void Save()
+        {
+            if (DisableIPCheckbox.Checked)
+            {
+                physical.IgnoreIP = true;
+            }
+            if (!DisableIPCheckbox.Checked)
+            {
+                physical.IP = IPDetailLabelShow.Text;
+                physical.IgnoreIP = false;
+            }
+            if (DisableAdminPanelCheckbox.Checked)
+            {
+                physical.IgnorePortal = true;
+            }
+            if (!DisableAdminPanelCheckbox.Checked)
+            {
+                physical.PortalLink = AdminPanelDetailLabelShow.Text;
+                physical.IgnorePortal = false;
+            }
+            physical.Name = PhysicalSystemNameLabel.Text;
+            physical.SelfRepair();
+        }
+        public void Refresh()
+        {
+            if (DisableIPCheckbox.Checked)
+            {
+                IPDetailLabelShow.Enabled = false;
+                IPDetailLabelShow.Text = "";
+            }
+            if (!DisableIPCheckbox.Checked)
+            {
+                IPDetailLabelShow.Enabled = true;
+                IPDetailLabelShow.Text = physical.IP;
+            }
+            if (DisableAdminPanelCheckbox.Checked)
+            {
+                AdminPanelDetailLabelShow.Enabled = false;
+                AdminPanelDetailLabelShow.Text = "";
+            }
+            if (!DisableAdminPanelCheckbox.Checked)
+            {
+                AdminPanelDetailLabelShow.Enabled = true;
+                AdminPanelDetailLabelShow.Text = physical.PortalLink;
+            }
+            
             PhysicalSystemNameLabel.Text = physical.Name;
             PhysicalSystemStatusLabel.Text = physical.Status;
-            IPDetailLabelShow.Text = physical.IP;
-            AdminPanelDetailLabelShow.Text = physical.PortalLink;
             FindChildren();
             ChildrenCountLabel.Text = Convert.ToString(ListChildren());
+            StatusPictureBox.Image = imageList2.Images[physical.StatusIconIndex];
+            overviewForm.Refresh();
         }
         public void FindChildren()
         {
+            children.Clear();
             foreach(Virtual system in overviewForm.VirtualMain)
             {
                 if (system.Mother.Name == physical.Name)
@@ -43,6 +100,8 @@ namespace HomelabManagerblj
         }
         public int ListChildren()
         {
+            ChildrenList.Items.Clear();
+           
             int i = 0;
             foreach (Virtual systemList in children)
             {
@@ -52,7 +111,7 @@ namespace HomelabManagerblj
                 this.ChildrenList.Items[i].Group = this.ChildrenList.Groups[1];
                 this.ChildrenList.Items[i].ImageIndex = systemList.StatusIconIndex;
                 i++;
-
+                Application.DoEvents();
             }
             return i;
         }
@@ -79,6 +138,27 @@ namespace HomelabManagerblj
                     detailForm.Show();
                 }
             }
+        }
+
+        private void saveSettings_Click(object sender, EventArgs e)
+        {
+            Save();
+            Refresh();
+        }
+
+        private void OpenAdminPanelButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(physical.PortalLink);
+        }
+
+        private void CopyIPButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(physical.IP);
+        }
+
+        private void DisableIPCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

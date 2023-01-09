@@ -30,19 +30,20 @@ namespace HomelabManagerblj
             VirtualMain = new List<Virtual>();
         }
 
-      
 
         private void Overview_Load(object sender, EventArgs e)
         {
             config = filehandler.LoadConfig();
             filehandler.IntegrityCheck();
+
             LoadLists();
+     
             Refresh();
+            
         }
 
         public void Refresh()
         {
-            
             
             systemList.Items.Clear();
             int i = 0;
@@ -70,155 +71,16 @@ namespace HomelabManagerblj
                 i++;
                
             }
-            
-        }
-        
-        private void CreateNewButton_Click(object sender, EventArgs e)
-        {
-
-            string newName = "";
-            string newIP = "";
-            string newPortal = "";
-
-            bool motherSet = false;
-            bool newNameSet = false;
-            bool newIPSet = false;
-            bool newPortalSet = false;
-            bool ignorePortal = false;
-            bool ignoreIP = false;
-            if (NewPhsyicalRadioButton.Checked)
-            {
-
-                if (string.IsNullOrEmpty(NewName.Text))
-                {
-                    MessageBox.Show("Enter a Name for The System");
-                }
-                else if (string.IsNullOrEmpty(NewName.Text) == false)
-                {
-                    newName = NewName.Text;
-                    newNameSet = true;
-                }
-
-                if (NoneBox1.Checked)
-                {
-                    ignoreIP = true;
-                    newIPSet = true;
-                }
-                else if (NoneBox1.Checked == false)
-                {
-                    if (string.IsNullOrEmpty(NewIP.Text) == false)
-                    {
-                        newIP = NewIP.Text;
-                        newIPSet = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Pleas add an IP address");
-                    }
-                }
-                if (NoneBox2.Checked)
-                {
-                    ignorePortal = true;
-                    newPortalSet |= true;
-                }
-                else if (NoneBox2.Checked == false)
-                {
-                    if (string.IsNullOrEmpty(NewAddress.Text) == false)
-                    {
-                        newPortal = NewAddress.Text;
-                        newPortalSet |= true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Enter an address");
-                    }
-                }
-                if (newIPSet && newNameSet && newPortalSet)
-                {
-                    Physical system = new Physical();
-                    system.Name = newName;
-                    system.IP = newIP;
-                    system.Portal = newPortal;
-                    system.IgnorePortal = ignorePortal;
-                    system.IgnoreIP = ignoreIP;
-                    PhysicalMain.Add(system);
-
-                }
-            }
-            if (NewVirtualRadioButton.Checked)
-            {
-                Mother = MotherSelector.SelectedItem as Physical;
-                
-
-                if (string.IsNullOrEmpty(NewName.Text))
-                {
-                    MessageBox.Show("Enter a Name for The System");
-                }
-                else if (string.IsNullOrEmpty(NewName.Text) == false)
-                {
-                    newName = NewName.Text;
-                    newNameSet = true;
-                }
-
-                if (NoneBox1.Checked)
-                {
-                    ignoreIP = true;
-                    newIPSet = true;
-                }
-                else if (NoneBox1.Checked == false)
-                {
-                    if (string.IsNullOrEmpty(NewIP.Text) == false)
-                    {
-                        newIP = NewIP.Text;
-                        newIPSet = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Pleas add an IP address");
-                    }
-                }
-                if (NoneBox2.Checked)
-                {
-                    ignorePortal = true;
-                    newPortalSet |= true;
-                }
-                else if (NoneBox2.Checked == false)
-                {
-                    if (string.IsNullOrEmpty(NewAddress.Text) == false)
-                    {
-                        newPortal = NewAddress.Text;
-                        newPortalSet |= true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Enter an address");
-                    }
-                }
-                if (newIPSet && newNameSet && newPortalSet)
-                {
-                    Virtual system = new Virtual();
-                    system.Mother = MotherSelector.SelectedItem as Physical;
-                    system.Name = newName;
-                    system.IP = newIP;
-                    system.Portal = newPortal;
-                    system.IgnorePortal = ignorePortal;
-                    system.IgnoreIP = ignoreIP;
-                    VirtualMain.Add(system);
-
-                }
-            }
-            MotherSelector.SelectedItem=null;
-            NewAddress.Text = "";
-            NewIP.Text = "";
-            NewName.Text = "";
             MotherSelector.Items.Clear();
             foreach (Physical systemList in PhysicalMain)
             {
                 MotherSelector.Items.Add(systemList);
             }
-
-            Refresh();
+         
+            
         }
+        
+
         public void OpenDetails()
         {
             
@@ -227,8 +89,11 @@ namespace HomelabManagerblj
                 Physical Psystem = PhysicalMain.FirstOrDefault(o => o.Name == item.Text);
                 if (Psystem != null)
                 {
-                    PhysicalSystemDetailForm detailForm = new PhysicalSystemDetailForm(this, Psystem);
-                    detailForm.Show();
+                    
+                        PhysicalSystemDetailForm detailForm = new PhysicalSystemDetailForm(this, Psystem);
+                        detailForm.Show();
+                 
+               
                 }
                 Virtual vsystem = VirtualMain.FirstOrDefault(o => o.Name == item.Text);
                 if (vsystem != null)
@@ -313,7 +178,12 @@ namespace HomelabManagerblj
 
         private void KumaPanelButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://status.wicki.sbs/status/systems");
+            try { 
+                System.Diagnostics.Process.Start(config.overviewPage); 
+            }
+            catch {
+                MessageBox.Show("Please Make sure there is a Valid Web Link\n(with http(s)://)  Saved in Settings -> Overview Website");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -340,6 +210,167 @@ namespace HomelabManagerblj
         {
             SaveLists();
         }
+        private void LoadTheme()
+        {
+            panel1.BackColor = SystemColors.ControlDarkDark;
+            panel2.BackColor = SystemColors.ControlDarkDark;
+        }
+        private void CreateNewButton_Click(object sender, EventArgs e)
+        {
+
+            string newName = "";
+            string newIP = "";
+            string newPortal = "";
+            string newPortalLink = "";
+
+            bool motherSet = false;
+            bool newNameSet = false;
+            bool newIPSet = false;
+            bool newPortalSet = false;
+            bool ignorePortal = false;
+            bool ignoreIP = false;
+            if (NewPhsyicalRadioButton.Checked)
+            {
+
+                if (string.IsNullOrEmpty(NewName.Text))
+                {
+                    MessageBox.Show("Enter a Name for The System");
+                }
+                else if (string.IsNullOrEmpty(NewName.Text) == false)
+                {
+                    newName = NewName.Text;
+                    newNameSet = true;
+                }
+
+                if (NoneBox1.Checked)
+                {
+                    ignoreIP = true;
+                    newIPSet = true;
+                }
+                else if (NoneBox1.Checked == false)
+                {
+                    if (string.IsNullOrEmpty(NewIP.Text) == false)
+                    {
+                        newIP = NewIP.Text;
+                        newIPSet = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Pleas add an IP address");
+                    }
+                }
+                if (NoneBox2.Checked)
+                {
+                    ignorePortal = true;
+                    newPortalSet = true;
+                }
+                else if (NoneBox2.Checked == false)
+                {
+                    if (string.IsNullOrEmpty(NewAddress.Text) == false)
+                    {
+                        newPortalLink = NewAddress.Text;
+                        newPortalSet |= true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Enter an address");
+                    }
+                }
+                if (newIPSet && newNameSet && newPortalSet)
+                {
+                    Physical system = new Physical();
+                    system.Name = newName;
+                    system.IP = newIP;
+                    
+                    system.PortalLink = newPortalLink;
+                    system.IgnorePortal = ignorePortal;
+                    system.IgnoreIP = ignoreIP;
+                    PhysicalMain.Add(system);
+
+                }
+            }
+            if (NewVirtualRadioButton.Checked)
+            {
+                Mother = MotherSelector.SelectedItem as Physical;
+
+
+                if (string.IsNullOrEmpty(NewName.Text))
+                {
+                    MessageBox.Show("Enter a Name for The System");
+                }
+                else if (string.IsNullOrEmpty(NewName.Text) == false)
+                {
+                    newName = NewName.Text;
+                    newNameSet = true;
+                }
+
+                if (NoneBox1.Checked)
+                {
+                    ignoreIP = true;
+                    newIPSet = true;
+                }
+                else if (NoneBox1.Checked == false)
+                {
+                    if (string.IsNullOrEmpty(NewIP.Text) == false)
+                    {
+                        newIP = NewIP.Text;
+                        newIPSet = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Pleas add an IP address");
+                    }
+                }
+                if (NoneBox2.Checked)
+                {
+                    ignorePortal = true;
+                    newPortalSet |= true;
+                }
+                else if (NoneBox2.Checked == false)
+                {
+                    if (string.IsNullOrEmpty(NewAddress.Text) == false)
+                    {
+                        newPortalLink = NewAddress.Text;
+                        newPortalSet |= true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Enter an address");
+                    }
+                }
+                if (newIPSet && newNameSet && newPortalSet)
+                {
+                    Virtual system = new Virtual();
+                    system.Mother = MotherSelector.SelectedItem as Physical;
+                    system.Name = newName;
+                    system.IP = newIP;
+                    system.PortalLink = newPortalLink;
+                    system.IgnorePortal = ignorePortal;
+                    system.IgnoreIP = ignoreIP;
+                    VirtualMain.Add(system);
+
+                }
+            }
+            MotherSelector.SelectedItem = null;
+            NewAddress.Text = "";
+            NewIP.Text = "";
+            NewName.Text = "";
+            MotherSelector.Items.Clear();
+            foreach (Physical systemList in PhysicalMain)
+            {
+                MotherSelector.Items.Add(systemList);
+            }
+            this.ActiveControl = NewName;
+            Refresh();
+        }
+
+        private void OpenSettings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings(this);
+            settings.ShowDialog();
+        }
+
+   
     }
     
 }

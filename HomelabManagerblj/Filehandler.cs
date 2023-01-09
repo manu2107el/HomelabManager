@@ -95,5 +95,42 @@ namespace HomelabManagerblj
                return virtuals;   
             }
         }
+        public List<Physical> OpenPhysicalConfig(string path)
+        {
+            List<Physical> physicals = new List<Physical>();
+            try
+            {
+                XmlSerializer PhysicalLoader = new XmlSerializer(typeof(List<Physical>));
+                using (TextReader reader = new StreamReader(path))
+                {
+                    physicals = (List<Physical>)PhysicalLoader.Deserialize(reader);
+                    return physicals;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error While reading File");
+                return physicals;
+            }
+        }
+        public List<Virtual> OpenVirtualConfig(string path)
+        {
+            List<Virtual> Virtuals = new List<Virtual>();
+            try
+            {
+                XmlSerializer PhysicalLoader = new XmlSerializer(typeof(List<Virtual>));
+                using (TextReader reader = new StreamReader(path))
+                {
+                    Virtuals = (List<Virtual>)PhysicalLoader.Deserialize(reader);
+                    return Virtuals;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error While reading File");
+                return Virtuals;
+            }
+        }
+       
     }
 }
