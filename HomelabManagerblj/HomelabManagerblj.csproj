@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Filehandler.cs" />
-    <Compile Include="Form_KeyUp.cs" />
     <Compile Include="MissingListDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,7 +63,6 @@
     <Compile Include="PhysicalSystemDetailForm.Designer.cs">
       <DependentUpon>PhysicalSystemDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kuma.cs" />
     <Compile Include="OverviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +130,7 @@
     <None Include="Icons\png\status_disconnected.png" />
     <None Include="Icons\png\status_connected.png" />
     <None Include="Icons\png\expired.png" />
+    <None Include="Icons\server.ico" />
     <Content Include="Icons\status_connected.png" />
     <Content Include="Icons\status_disconnected.png" />
     <Content Include="Icons\status_lagging.png" />

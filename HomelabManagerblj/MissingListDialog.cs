@@ -27,6 +27,8 @@ namespace HomelabManagerblj
         public void UpdateValues()
         {
             OverviewFormlocal.filehandler.IntegrityCheck();
+            OverviewFormlocal.PhysicalMain=OverviewFormlocal.filehandler.ReadPhysicalSave();
+            OverviewFormlocal.VirtualMain=OverviewFormlocal.filehandler.ReadVirtualSave();
             if (OverviewFormlocal.filehandler.PhysicalMissing)
             {
                 PhysicalSaveFileStatus.Text = "MISSING";
@@ -35,11 +37,19 @@ namespace HomelabManagerblj
             {
                 VirtualSaveStatusIndicator.Text = "MISSING";
             }
-            if (!OverviewFormlocal.filehandler.PhysicalMissing)
+            if (OverviewFormlocal.filehandler.PhysicalBroken)
+            {
+                PhysicalSaveFileStatus.Text = "UNREADABLE";
+            }
+            if (OverviewFormlocal.filehandler.VirtualBroken)
+            {
+                PhysicalSaveFileStatus.Text = "UNREADABLE";
+            }
+            if (!OverviewFormlocal.filehandler.PhysicalMissing && !OverviewFormlocal.filehandler.PhysicalBroken)
             {
                 PhysicalSaveFileStatus.Text = "FOUND";
             }
-            if (!OverviewFormlocal.filehandler.VirtualMissing)
+            if (!OverviewFormlocal.filehandler.VirtualMissing && !OverviewFormlocal.filehandler.VirtualBroken)
             {
                 VirtualSaveStatusIndicator.Text = "FOUND";
             }
@@ -55,6 +65,7 @@ namespace HomelabManagerblj
 
         private void ForgetPhysicalSave_Click(object sender, EventArgs e)
         {
+            
             OverviewFormlocal.config.PhysicalSaveFile = "PhysicalList.xml";
             XmlSerializer PhysicalSaver = new XmlSerializer(typeof(List<Physical>));
             using (TextWriter writer = new StreamWriter(OverviewFormlocal.config.PhysicalSaveFile))
@@ -91,6 +102,7 @@ namespace HomelabManagerblj
 
         private void FindPhysical_Click(object sender, EventArgs e)
         {
+            
             OpenFileDialog openPhysical = new OpenFileDialog();
             openPhysical.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
             if (openPhysical.ShowDialog() == DialogResult.OK)

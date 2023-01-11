@@ -13,6 +13,8 @@ namespace HomelabManagerblj
     {
         public bool PhysicalMissing { get; set; }
         public bool VirtualMissing { get; set; }
+        public bool PhysicalBroken =false;
+        public bool VirtualBroken =false;
         public bool FileError { get; set; }
         Config config = new Config();
         
@@ -71,11 +73,18 @@ namespace HomelabManagerblj
                 using (TextReader reader = new StreamReader(config.PhysicalSaveFile))
                 {
                     physicals = (List<Physical>)PhysicalLoader.Deserialize(reader);
+                    PhysicalBroken = false;
                     return physicals;
                 }
             }
-            catch
+            catch(FileNotFoundException)
             {
+                FileError = true;
+                return physicals;
+            }
+            catch (InvalidOperationException)
+            {
+                PhysicalBroken=true;
                 FileError = true;
                 return physicals;
             }
@@ -89,13 +98,20 @@ namespace HomelabManagerblj
                 using (TextReader reader = new StreamReader(config.VirtualSaveFile))
                 {
                     virtuals = (List<Virtual>)VirtualLoader.Deserialize(reader);
+                    VirtualBroken=false;
                     return virtuals;
                 }
             }
-            catch
+            catch (FileNotFoundException)
             {
-               FileError = true;
-               return virtuals;   
+                FileError = true;
+                return virtuals;
+            }
+            catch (InvalidOperationException)
+            {
+                VirtualBroken = true;
+                FileError = true;
+                return virtuals;
             }
         }
         public List<Physical> OpenPhysicalConfig(string path)

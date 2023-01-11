@@ -52,7 +52,7 @@
             // 
             this.VirtualSystemStatusLabel.AutoSize = true;
             this.VirtualSystemStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VirtualSystemStatusLabel.Location = new System.Drawing.Point(104, 169);
+            this.VirtualSystemStatusLabel.Location = new System.Drawing.Point(12, 159);
             this.VirtualSystemStatusLabel.Name = "VirtualSystemStatusLabel";
             this.VirtualSystemStatusLabel.Size = new System.Drawing.Size(126, 39);
             this.VirtualSystemStatusLabel.TabIndex = 10;
@@ -90,7 +90,7 @@
             // 
             // StatusPictureBox
             // 
-            this.StatusPictureBox.Location = new System.Drawing.Point(19, 138);
+            this.StatusPictureBox.Location = new System.Drawing.Point(490, 139);
             this.StatusPictureBox.Name = "StatusPictureBox";
             this.StatusPictureBox.Size = new System.Drawing.Size(79, 72);
             this.StatusPictureBox.TabIndex = 18;
@@ -209,6 +209,7 @@
             this.Controls.Add(this.IPDetailLabel);
             this.Controls.Add(this.AdminPanelLabel);
             this.Controls.Add(this.MotherLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VirtualSystemDetailForm";
             this.Text = "VirtualSystemDetailForm";
             this.Load += new System.EventHandler(this.VirtualSystemDetailForm_Load);

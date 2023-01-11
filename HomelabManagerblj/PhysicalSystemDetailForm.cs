@@ -94,14 +94,14 @@ namespace HomelabManagerblj
                 OpenAdminPanelButton.Enabled = true;
                 AdminPanelDetailLabelShow.Text = physical.PortalLink;
             }
-            
+            overviewForm.Refresh();
             PhysicalSystemNameLabel.Text = physical.Name;
             PhysicalSystemStatusLabel.Text = physical.Status;
             FindChildren();
                 ChildrenCountLabel.Text = Convert.ToString(ListChildren());
             
             StatusPictureBox.Image = imageList2.Images[physical.StatusIconIndex];
-            overviewForm.Refresh();
+            
             Application.DoEvents();
         }
         public void FindChildren()
@@ -165,6 +165,7 @@ namespace HomelabManagerblj
             Save();
             Refresh();
             saveSettings.Enabled = true;
+            Application.DoEvents();
         }
 
         private void OpenAdminPanelButton_Click(object sender, EventArgs e)

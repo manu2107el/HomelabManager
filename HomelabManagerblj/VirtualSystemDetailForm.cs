@@ -86,12 +86,12 @@ namespace HomelabManagerblj
                 OpenAdminPanelButton.Enabled = true;
                 AdminPanelDetailLabelShow.Text = system.PortalLink;
             }
-
+            overviewForm.Refresh();
             VirtualSystemNameLabel.Text = system.Name;
             VirtualSystemStatusLabel.Text = system.Status;
             FillMotherSelector();
             StatusPictureBox.Image = imageList2.Images[system.StatusIconIndex];
-            overviewForm.Refresh();
+            
         }
         public void FillMotherSelector()
         {
@@ -132,8 +132,11 @@ namespace HomelabManagerblj
 
         private void saveSettings_Click(object sender, EventArgs e)
         {
+            saveSettings.Enabled = false;
             Save();
             Refresh();
+            saveSettings.Enabled = true;
+            Application.DoEvents();
         }
 
         private void OpenAdminPanelButton_Click(object sender, EventArgs e)
@@ -150,5 +153,7 @@ namespace HomelabManagerblj
         {
             Refresh();
         }
+
+
     }
 }

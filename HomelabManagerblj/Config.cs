@@ -10,8 +10,8 @@ namespace HomelabManagerblj
 {
     public class Config
     {
-        public string PhysicalSaveFile = "";
-        public string VirtualSaveFile = "";
+        public string PhysicalSaveFile = "PhysicalList.xml";
+        public string VirtualSaveFile = "VirtualList.xml";
         public string overviewPage = "";
         public int ttl = 50;
         public int timeout = 1000;

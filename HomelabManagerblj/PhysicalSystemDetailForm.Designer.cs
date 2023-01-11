@@ -284,6 +284,7 @@
             this.Controls.Add(this.ChildrenLabel);
             this.Controls.Add(this.ChildrenList);
             this.Controls.Add(this.PhysicalSystemStatusLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PhysicalSystemDetailForm";
             this.Text = "DetailForm";
             this.Load += new System.EventHandler(this.DetailForm_Load);

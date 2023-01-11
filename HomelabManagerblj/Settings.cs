@@ -73,30 +73,50 @@ namespace HomelabManagerblj
             }
             overviewForm.filehandler.SaveConfig();
             UpdateValues();
+             MessageBox.Show("Restart Application for chanches to be applied");
         }
 
         private void FindVirtual_Click(object sender, EventArgs e)
         {
-            OpenFileDialog searchVirtual = new OpenFileDialog();
-            searchVirtual.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
-            if (searchVirtual.ShowDialog() == DialogResult.OK)
+            string message = "This will Discard any unsaved chanches!";
+            string caption = "Continue?";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                overviewForm.config.VirtualSaveFile = searchVirtual.FileName;
+                OpenFileDialog searchVirtual = new OpenFileDialog();
+                searchVirtual.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+                if (searchVirtual.ShowDialog() == DialogResult.OK)
+                {
+                    overviewForm.config.VirtualSaveFile = searchVirtual.FileName;
+                }
+                overviewForm.filehandler.SaveConfig();
+                UpdateValues1();
             }
-            overviewForm.filehandler.SaveConfig();
-            UpdateValues();
+           
+            
         }
 
         private void FindPhysical_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openPhysical = new OpenFileDialog();
+            string message = "This will Discard any unsaved chanches!";
+            string caption = "Continue?";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+OpenFileDialog openPhysical = new OpenFileDialog();
             openPhysical.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
             if (openPhysical.ShowDialog() == DialogResult.OK)
             {
                 overviewForm.config.PhysicalSaveFile = openPhysical.FileName;
             }
             overviewForm.filehandler.SaveConfig();
-            UpdateValues();
+            UpdateValues1();
+            }
+            
         }
         public void ImportPhysical()
         {
@@ -200,6 +220,42 @@ namespace HomelabManagerblj
             overviewForm.filehandler.SaveConfig();
             UpdateValues();
 
+        }
+        public void UpdateValues1()
+        {
+            overviewForm.filehandler.IntegrityCheck();
+            overviewForm.PhysicalMain = overviewForm.filehandler.ReadPhysicalSave();
+            overviewForm.VirtualMain = overviewForm.filehandler.ReadVirtualSave();
+            if (overviewForm.filehandler.PhysicalMissing)
+            {
+                PhysicalSaveFileStatus.Text = "MISSING";
+            }
+            if (overviewForm.filehandler.VirtualMissing)
+            {
+                VirtualSaveStatusIndicator.Text = "MISSING";
+            }
+            if (overviewForm.filehandler.PhysicalBroken)
+            {
+                PhysicalSaveFileStatus.Text = "UNREADABLE";
+            }
+            if (overviewForm.filehandler.VirtualBroken)
+            {
+                PhysicalSaveFileStatus.Text = "UNREADABLE";
+            }
+            if (!overviewForm.filehandler.PhysicalMissing && !overviewForm.filehandler.PhysicalBroken)
+            {
+                PhysicalSaveFileStatus.Text = "FOUND";
+            }
+            if (!overviewForm.filehandler.VirtualMissing && !overviewForm.filehandler.VirtualBroken)
+            {
+                VirtualSaveStatusIndicator.Text = "FOUND";
+            }
+            PhysicalPathLabel.Text = overviewForm.config.PhysicalSaveFile;
+            VirtualFielPathIndicator.Text = overviewForm.config.VirtualSaveFile;
+            OverviewPageBox.Text = overviewForm.config.overviewPage;
+            TTLBox.Text = Convert.ToString(overviewForm.config.ttl);
+            TimeoutBox.Text = Convert.ToString(overviewForm.config.timeout);
+            Application.DoEvents();
         }
     }
 }

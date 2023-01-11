@@ -15,31 +15,19 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_099DA388DE35491FAF7D46F2822829F6"
+        "MsmKey" = "8:_0EE0F85C6DA74EDEA26534C4EF542FD2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0C367F5305304AA5A689123D16CE7F6E"
+        "MsmKey" = "8:_2E41D76EAC8749639DD252744DF54BA3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_466B625EE3854CDFBCA21BCF44B01F39"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4F399774CA704EE6BD8296F2A3083847"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_65C8555E02C94B44B878EBFC4F583A26"
+        "MsmKey" = "8:_364FC8790FDA4B3CB18F7B0550268927"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,7 +39,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_86E39625D67D419A8CA058768738912C"
+        "MsmKey" = "8:_8904A37AA92242E897C45FFDB354F6CA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8D6B2BB2BC5C48EBB7C15B25B42B104E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,32 +57,44 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A9D7B8E2F80447AAA3AEE7F447869CDB"
+        "MsmKey" = "8:_AD1EB03C37754F1CB3FE9F29F7405B6B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C6A6FA096A6243CF8CEAC9EC9B6A01CC"
+        "MsmKey" = "8:_C6DAF7F670794AE18EB4D5CEAAFFB6BD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EDB2D151507E41D8A1274E8F767A769D"
+        "MsmKey" = "8:_D34EDBFBF8164BFEAEC02B788AA4BA73"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9CB5A5D933F8A95269A81EEAD4D77401"
+        "MsmKey" = "8:_DDAAE4E31E4844ADAF0C0EC4D8DDE454"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E778383C8D334D5A8533E0514F0AE64C"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_687D69268F2E4C40A8A9DC0FA41EF010"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9CB5A5D933F8A95269A81EEAD4D77401"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -109,6 +115,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -125,6 +147,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -154,72 +192,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_099DA388DE35491FAF7D46F2822829F6"
-            {
-            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\png\\status_lagging.png"
-            "TargetName" = "8:status_lagging.png"
-            "Tag" = "8:"
-            "Folder" = "8:_DD3E9BE9F1BA40F2B138250B5C2030C9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C367F5305304AA5A689123D16CE7F6E"
-            {
-            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\png\\expired.png"
-            "TargetName" = "8:expired.png"
-            "Tag" = "8:"
-            "Folder" = "8:_DD3E9BE9F1BA40F2B138250B5C2030C9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_466B625EE3854CDFBCA21BCF44B01F39"
-            {
-            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\status_lagging.png"
-            "TargetName" = "8:status_lagging.png"
-            "Tag" = "8:"
-            "Folder" = "8:_A2EC41775E4B42F1B138A8DC0998815B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F399774CA704EE6BD8296F2A3083847"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0EE0F85C6DA74EDEA26534C4EF542FD2"
             {
             "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\png\\status_connected.png"
             "TargetName" = "8:status_connected.png"
             "Tag" = "8:"
-            "Folder" = "8:_DD3E9BE9F1BA40F2B138250B5C2030C9"
+            "Folder" = "8:_3276F52A3652483C8ECCD8BC1F19BA09"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -234,12 +212,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65C8555E02C94B44B878EBFC4F583A26"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2E41D76EAC8749639DD252744DF54BA3"
+            {
+            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\expired.png"
+            "TargetName" = "8:expired.png"
+            "Tag" = "8:"
+            "Folder" = "8:_31E59E4F8B94408FA27397CCF3F03665"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_364FC8790FDA4B3CB18F7B0550268927"
+            {
+            "SourcePath" = "8:..\\HomelabManagerblj\\Resources\\UnknownStatus.png"
+            "TargetName" = "8:UnknownStatus.png"
+            "Tag" = "8:"
+            "Folder" = "8:_CB4EF0B38ADC472FB32D6F175B1861DB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8904A37AA92242E897C45FFDB354F6CA"
             {
             "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\status_connected.png"
             "TargetName" = "8:status_connected.png"
             "Tag" = "8:"
-            "Folder" = "8:_A2EC41775E4B42F1B138A8DC0998815B"
+            "Folder" = "8:_31E59E4F8B94408FA27397CCF3F03665"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -254,12 +272,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_86E39625D67D419A8CA058768738912C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D6B2BB2BC5C48EBB7C15B25B42B104E"
             {
-            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\status_disconnected.png"
-            "TargetName" = "8:status_disconnected.png"
+            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\png\\status_lagging.png"
+            "TargetName" = "8:status_lagging.png"
             "Tag" = "8:"
-            "Folder" = "8:_A2EC41775E4B42F1B138A8DC0998815B"
+            "Folder" = "8:_3276F52A3652483C8ECCD8BC1F19BA09"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -305,12 +323,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9D7B8E2F80447AAA3AEE7F447869CDB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AD1EB03C37754F1CB3FE9F29F7405B6B"
             {
-            "SourcePath" = "8:..\\HomelabManagerblj\\Resources\\UnknownStatus.png"
-            "TargetName" = "8:UnknownStatus.png"
+            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\png\\expired.png"
+            "TargetName" = "8:expired.png"
             "Tag" = "8:"
-            "Folder" = "8:_D64FAC73A84F44F385B067D8EDD0D1C7"
+            "Folder" = "8:_3276F52A3652483C8ECCD8BC1F19BA09"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -325,12 +343,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6A6FA096A6243CF8CEAC9EC9B6A01CC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6DAF7F670794AE18EB4D5CEAAFFB6BD"
+            {
+            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\server.ico"
+            "TargetName" = "8:server.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_31E59E4F8B94408FA27397CCF3F03665"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D34EDBFBF8164BFEAEC02B788AA4BA73"
             {
             "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\png\\status_disconnected.png"
             "TargetName" = "8:status_disconnected.png"
             "Tag" = "8:"
-            "Folder" = "8:_DD3E9BE9F1BA40F2B138250B5C2030C9"
+            "Folder" = "8:_3276F52A3652483C8ECCD8BC1F19BA09"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -345,12 +383,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDB2D151507E41D8A1274E8F767A769D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DDAAE4E31E4844ADAF0C0EC4D8DDE454"
             {
-            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\expired.png"
-            "TargetName" = "8:expired.png"
+            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\status_disconnected.png"
+            "TargetName" = "8:status_disconnected.png"
             "Tag" = "8:"
-            "Folder" = "8:_A2EC41775E4B42F1B138A8DC0998815B"
+            "Folder" = "8:_31E59E4F8B94408FA27397CCF3F03665"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E778383C8D334D5A8533E0514F0AE64C"
+            {
+            "SourcePath" = "8:..\\HomelabManagerblj\\Icons\\status_lagging.png"
+            "TargetName" = "8:status_lagging.png"
+            "Tag" = "8:"
+            "Folder" = "8:_31E59E4F8B94408FA27397CCF3F03665"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -403,35 +461,35 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A2EC41775E4B42F1B138A8DC0998815B"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_31E59E4F8B94408FA27397CCF3F03665"
                     {
                     "Name" = "8:Icons"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_596CEAC6D7B844B3858B59569EC1C896"
+                    "Property" = "8:_68B85E88961E465DB3B7E94B31827E43"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_DD3E9BE9F1BA40F2B138250B5C2030C9"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_3276F52A3652483C8ECCD8BC1F19BA09"
                             {
                             "Name" = "8:png"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_9A2455894EE64470939DE50D1E76D78F"
+                            "Property" = "8:_135995FFB866455C9A59E9DA05864E8D"
                                 "Folders"
                                 {
                                 }
                             }
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D64FAC73A84F44F385B067D8EDD0D1C7"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_CB4EF0B38ADC472FB32D6F175B1861DB"
                     {
                     "Name" = "8:Resources"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_9237E3CDD19A4AD69A76DB39DE74CBC3"
+                    "Property" = "8:_4B12C8558FCE45D29EE36D0022781CDA"
                         "Folders"
                         {
                         }
@@ -453,22 +511,22 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Homelab Setup"
-        "ProductCode" = "8:{E54C9FF1-2E65-4162-9098-4A42FE414591}"
-        "PackageCode" = "8:{6B938272-7C97-46AD-ACFD-F5B18F7C71CC}"
+        "ProductName" = "8:HomelabManager"
+        "ProductCode" = "8:{F9E9BBED-77BA-4CA6-8C12-B467A0361C16}"
+        "PackageCode" = "8:{436B014A-D49C-43C6-94A5-D6322C3D5E25}"
         "UpgradeCode" = "8:{22C57681-5AF2-4E50-A54A-1B63522E16DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "ProductVersion" = "8:0.1.1"
+        "Manufacturer" = "8:WIT"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Homelab Setup"
+        "Title" = "8:HomelabManager Setup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:WIT"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -575,9 +633,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8A6270236246430F8084FFE632696987"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1047B85A22B046F7887A95CB67426367"
             {
-            "Name" = "8:Homelab"
+            "Name" = "8:HomeLab Manager (Rc2)"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -586,7 +644,7 @@
             "Target" = "8:_687D69268F2E4C40A8A9DC0FA41EF010"
             "Folder" = "8:_9115E77145274048B0FD02172C2E0456"
             "WorkingFolder" = "8:_E9E7E4D16DDB49C2A510C4C2F487C987"
-            "Icon" = "8:"
+            "Icon" = "8:_C6DAF7F670794AE18EB4D5CEAAFFB6BD"
             "Feature" = "8:"
             }
         }
