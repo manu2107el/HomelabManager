@@ -65,24 +65,28 @@ namespace HomelabManagerblj
             if (DisableIPCheckbox.Checked)
             {
                 IPDetailLabelShow.Enabled = false;
+                CopyIPButton.Enabled = false;
                 IPDetailLabelShow.Text = "";
             }
             if (!DisableIPCheckbox.Checked)
             {
                 IPDetailLabelShow.Enabled = true;
+                CopyIPButton.Enabled = true;
                 IPDetailLabelShow.Text = system.IP;
             }
             if (DisableAdminPanelCheckbox.Checked)
             {
                 AdminPanelDetailLabelShow.Enabled = false;
+                OpenAdminPanelButton.Enabled = false;
                 AdminPanelDetailLabelShow.Text = "";
             }
             if (!DisableAdminPanelCheckbox.Checked)
             {
                 AdminPanelDetailLabelShow.Enabled = true;
+                OpenAdminPanelButton.Enabled = true;
                 AdminPanelDetailLabelShow.Text = system.PortalLink;
             }
-            
+
             VirtualSystemNameLabel.Text = system.Name;
             VirtualSystemStatusLabel.Text = system.Status;
             FillMotherSelector();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,12 +21,18 @@ namespace HomelabManagerblj
         public bool IgnorePortal { get; set; }
         public string Status { get;  set; }
         public int StatusIconIndex = 0;
+        public int ttl = 50;
+        public int timeout = 1000;
+        
         public Virtual()
         {
             
         }
-        public void StatusUpdate()
-        { 
+        
+        public void StatusUpdate(int TtL, int TimeOut)
+        {
+            ttl = TtL;
+            timeout = TimeOut;
             SelfRepair();
             bool PingIP = false;
             bool PingPortal = false;
@@ -103,6 +110,19 @@ namespace HomelabManagerblj
         }
         public void SelfRepair()
         {
+            if (!IgnoreIP)
+            {
+                if (!IsValidIP(IP))
+                {
+                    MessageBox.Show("IP is Invalid");
+                    IP = "X.X";
+                }
+            }
+            if (IgnoreIP && IgnorePortal)
+            {
+                StatusIconIndex = 0;
+                Status = "Undetermined";
+            }
             if (!PortalLink.Contains("http://") && !PortalLink.Contains("https://"))
             {
                 PortalLink = "http://" + PortalLink;
@@ -110,12 +130,12 @@ namespace HomelabManagerblj
             GetAddressFromLink(PortalLink);
             if (IgnorePortal)
             {
-                Portal = "None";
+                Portal = "None.Set";
                 PortalLink = "None";
             }
             if (IgnoreIP)
             {
-                IP = "None";
+                IP = "None.Set";
             }
         }
         public void GetAddressFromLink(string portalLink)
@@ -126,8 +146,37 @@ namespace HomelabManagerblj
             {
                 Portal = match.Value;
             }
+            
         }
-        public static bool PingHost(string nameOrAddress)
+        public bool IsValidIP(string ip)
+        {
+            if (String.IsNullOrEmpty(ip))
+            {
+                return false;
+            }
+
+            // Split the IP address into its octets
+            string[] octets = ip.Split('.');
+
+            // Check if there are exactly 4 octets
+            if (octets.Length != 4)
+            {
+                return false;
+            }
+
+            // Check if each octet is a valid integer between 0 and 255
+            for (int i = 0; i < octets.Length; i++)
+            {
+                int octet;
+                if (!int.TryParse(octets[i], out octet) || octet < 0 || octet > 255)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        public bool PingHost(string nameOrAddress)
         {
             bool pingable = false;
 
@@ -136,9 +185,14 @@ namespace HomelabManagerblj
             try
             {
                 pinger = new Ping();
-                PingOptions options = new PingOptions(50, true);
-                PingReply reply = pinger.Send(nameOrAddress, 1000, new byte[32], options);
+                PingOptions options = new PingOptions(ttl, true);
+                PingReply reply = pinger.Send(nameOrAddress, timeout, new byte[32], options);
                 pingable = reply.Status == IPStatus.Success;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("TTL or Timeout are out of range!\n" +
+                    "PLease Check Settings");
             }
             catch (PingException)
             {

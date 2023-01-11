@@ -13,5 +13,7 @@ namespace HomelabManagerblj
         public string PhysicalSaveFile = "";
         public string VirtualSaveFile = "";
         public string overviewPage = "";
+        public int ttl = 50;
+        public int timeout = 1000;
     }
 }

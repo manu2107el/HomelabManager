@@ -18,7 +18,10 @@ namespace HomelabManagerblj
         
         public Config LoadConfig()
         {
-            
+            if (!File.Exists("Config.xml"))
+            {
+                SaveConfig();
+            }
             XmlSerializer ConfigLoader = new XmlSerializer(typeof(Config));
             using (TextReader reader = new StreamReader("Config.xml"))
             {

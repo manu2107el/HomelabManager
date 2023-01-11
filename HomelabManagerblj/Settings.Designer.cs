@@ -49,18 +49,24 @@
             this.SaveOverviewPageButton = new System.Windows.Forms.Button();
             this.OverviewPageBox = new System.Windows.Forms.TextBox();
             this.OverviewPageLabel = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TimeoutLabel = new System.Windows.Forms.Label();
+            this.TTLBox = new System.Windows.Forms.TextBox();
+            this.SetPing = new System.Windows.Forms.Button();
+            this.TimeoutBox = new System.Windows.Forms.TextBox();
+            this.TTLLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.OverviewWebsiteGroup.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PhhsicalListLabel
             // 
             this.PhhsicalListLabel.AutoSize = true;
-            this.PhhsicalListLabel.Location = new System.Drawing.Point(22, 54);
-            this.PhhsicalListLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PhhsicalListLabel.Location = new System.Drawing.Point(12, 29);
             this.PhhsicalListLabel.Name = "PhhsicalListLabel";
-            this.PhhsicalListLabel.Size = new System.Drawing.Size(0, 25);
+            this.PhhsicalListLabel.Size = new System.Drawing.Size(0, 13);
             this.PhhsicalListLabel.TabIndex = 0;
             // 
             // groupBox1
@@ -72,21 +78,18 @@
             this.groupBox1.Controls.Add(this.PhysicalSaveFileLabel);
             this.groupBox1.Controls.Add(this.PhysicalSaveFileStatus);
             this.groupBox1.Controls.Add(this.ForgetPhysicalSave);
-            this.groupBox1.Location = new System.Drawing.Point(18, 22);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox1.Size = new System.Drawing.Size(614, 142);
+            this.groupBox1.Size = new System.Drawing.Size(335, 77);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Physical Save File";
             // 
             // ImportButton
             // 
-            this.ImportButton.Location = new System.Drawing.Point(192, 90);
-            this.ImportButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ImportButton.Location = new System.Drawing.Point(105, 49);
             this.ImportButton.Name = "ImportButton";
-            this.ImportButton.Size = new System.Drawing.Size(128, 42);
+            this.ImportButton.Size = new System.Drawing.Size(70, 23);
             this.ImportButton.TabIndex = 2;
             this.ImportButton.Text = "Import";
             this.ImportButton.UseVisualStyleBackColor = true;
@@ -95,10 +98,9 @@
             // PhysicalPathLabel
             // 
             this.PhysicalPathLabel.AutoSize = true;
-            this.PhysicalPathLabel.Location = new System.Drawing.Point(95, 61);
-            this.PhysicalPathLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PhysicalPathLabel.Location = new System.Drawing.Point(52, 33);
             this.PhysicalPathLabel.Name = "PhysicalPathLabel";
-            this.PhysicalPathLabel.Size = new System.Drawing.Size(46, 25);
+            this.PhysicalPathLabel.Size = new System.Drawing.Size(27, 13);
             this.PhysicalPathLabel.TabIndex = 6;
             this.PhysicalPathLabel.Text = "N/A";
             this.PhysicalPathLabel.Click += new System.EventHandler(this.PhysicalPathLabel_Click);
@@ -106,19 +108,17 @@
             // PhysicalSaveFilePathLabel
             // 
             this.PhysicalSaveFilePathLabel.AutoSize = true;
-            this.PhysicalSaveFilePathLabel.Location = new System.Drawing.Point(16, 61);
-            this.PhysicalSaveFilePathLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PhysicalSaveFilePathLabel.Location = new System.Drawing.Point(6, 33);
             this.PhysicalSaveFilePathLabel.Name = "PhysicalSaveFilePathLabel";
-            this.PhysicalSaveFilePathLabel.Size = new System.Drawing.Size(58, 25);
+            this.PhysicalSaveFilePathLabel.Size = new System.Drawing.Size(32, 13);
             this.PhysicalSaveFilePathLabel.TabIndex = 5;
             this.PhysicalSaveFilePathLabel.Text = "Path:";
             // 
             // FindPhysical
             // 
-            this.FindPhysical.Location = new System.Drawing.Point(73, 90);
-            this.FindPhysical.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.FindPhysical.Location = new System.Drawing.Point(40, 49);
             this.FindPhysical.Name = "FindPhysical";
-            this.FindPhysical.Size = new System.Drawing.Size(108, 42);
+            this.FindPhysical.Size = new System.Drawing.Size(59, 23);
             this.FindPhysical.TabIndex = 1;
             this.FindPhysical.Text = "Open";
             this.FindPhysical.UseVisualStyleBackColor = true;
@@ -127,29 +127,26 @@
             // PhysicalSaveFileLabel
             // 
             this.PhysicalSaveFileLabel.AutoSize = true;
-            this.PhysicalSaveFileLabel.Location = new System.Drawing.Point(11, 30);
-            this.PhysicalSaveFileLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PhysicalSaveFileLabel.Location = new System.Drawing.Point(6, 16);
             this.PhysicalSaveFileLabel.Name = "PhysicalSaveFileLabel";
-            this.PhysicalSaveFileLabel.Size = new System.Drawing.Size(74, 25);
+            this.PhysicalSaveFileLabel.Size = new System.Drawing.Size(40, 13);
             this.PhysicalSaveFileLabel.TabIndex = 2;
             this.PhysicalSaveFileLabel.Text = "Status:";
             // 
             // PhysicalSaveFileStatus
             // 
             this.PhysicalSaveFileStatus.AutoSize = true;
-            this.PhysicalSaveFileStatus.Location = new System.Drawing.Point(95, 30);
-            this.PhysicalSaveFileStatus.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PhysicalSaveFileStatus.Location = new System.Drawing.Point(52, 16);
             this.PhysicalSaveFileStatus.Name = "PhysicalSaveFileStatus";
-            this.PhysicalSaveFileStatus.Size = new System.Drawing.Size(46, 25);
+            this.PhysicalSaveFileStatus.Size = new System.Drawing.Size(27, 13);
             this.PhysicalSaveFileStatus.TabIndex = 3;
             this.PhysicalSaveFileStatus.Text = "N/A";
             // 
             // ForgetPhysicalSave
             // 
-            this.ForgetPhysicalSave.Location = new System.Drawing.Point(332, 90);
-            this.ForgetPhysicalSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ForgetPhysicalSave.Location = new System.Drawing.Point(181, 49);
             this.ForgetPhysicalSave.Name = "ForgetPhysicalSave";
-            this.ForgetPhysicalSave.Size = new System.Drawing.Size(271, 42);
+            this.ForgetPhysicalSave.Size = new System.Drawing.Size(148, 23);
             this.ForgetPhysicalSave.TabIndex = 3;
             this.ForgetPhysicalSave.Text = "Forget and Regenerate";
             this.ForgetPhysicalSave.UseVisualStyleBackColor = true;
@@ -164,11 +161,9 @@
             this.groupBox2.Controls.Add(this.VirtualStatusLabel);
             this.groupBox2.Controls.Add(this.VirtualSaveStatusIndicator);
             this.groupBox2.Controls.Add(this.ForgetVirtual);
-            this.groupBox2.Location = new System.Drawing.Point(18, 175);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Location = new System.Drawing.Point(10, 95);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox2.Size = new System.Drawing.Size(618, 138);
+            this.groupBox2.Size = new System.Drawing.Size(337, 75);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Virtual Save File";
@@ -177,10 +172,9 @@
             // 
             this.ImportButton1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ImportButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ImportButton1.Location = new System.Drawing.Point(196, 85);
-            this.ImportButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ImportButton1.Location = new System.Drawing.Point(107, 46);
             this.ImportButton1.Name = "ImportButton1";
-            this.ImportButton1.Size = new System.Drawing.Size(128, 42);
+            this.ImportButton1.Size = new System.Drawing.Size(70, 23);
             this.ImportButton1.TabIndex = 5;
             this.ImportButton1.Text = "Import";
             this.ImportButton1.UseVisualStyleBackColor = false;
@@ -189,10 +183,9 @@
             // VirtualFielPathIndicator
             // 
             this.VirtualFielPathIndicator.AutoSize = true;
-            this.VirtualFielPathIndicator.Location = new System.Drawing.Point(95, 61);
-            this.VirtualFielPathIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.VirtualFielPathIndicator.Location = new System.Drawing.Point(52, 33);
             this.VirtualFielPathIndicator.Name = "VirtualFielPathIndicator";
-            this.VirtualFielPathIndicator.Size = new System.Drawing.Size(46, 25);
+            this.VirtualFielPathIndicator.Size = new System.Drawing.Size(27, 13);
             this.VirtualFielPathIndicator.TabIndex = 6;
             this.VirtualFielPathIndicator.Text = "N/A";
             this.VirtualFielPathIndicator.Click += new System.EventHandler(this.VirtualFielPathIndicator_Click);
@@ -200,19 +193,17 @@
             // VirtualFilePathLabel
             // 
             this.VirtualFilePathLabel.AutoSize = true;
-            this.VirtualFilePathLabel.Location = new System.Drawing.Point(16, 61);
-            this.VirtualFilePathLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.VirtualFilePathLabel.Location = new System.Drawing.Point(6, 33);
             this.VirtualFilePathLabel.Name = "VirtualFilePathLabel";
-            this.VirtualFilePathLabel.Size = new System.Drawing.Size(58, 25);
+            this.VirtualFilePathLabel.Size = new System.Drawing.Size(32, 13);
             this.VirtualFilePathLabel.TabIndex = 5;
             this.VirtualFilePathLabel.Text = "Path:";
             // 
             // FindVirtual
             // 
-            this.FindVirtual.Location = new System.Drawing.Point(73, 85);
-            this.FindVirtual.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.FindVirtual.Location = new System.Drawing.Point(40, 46);
             this.FindVirtual.Name = "FindVirtual";
-            this.FindVirtual.Size = new System.Drawing.Size(108, 42);
+            this.FindVirtual.Size = new System.Drawing.Size(59, 23);
             this.FindVirtual.TabIndex = 4;
             this.FindVirtual.Text = "Open";
             this.FindVirtual.UseVisualStyleBackColor = true;
@@ -221,29 +212,26 @@
             // VirtualStatusLabel
             // 
             this.VirtualStatusLabel.AutoSize = true;
-            this.VirtualStatusLabel.Location = new System.Drawing.Point(11, 30);
-            this.VirtualStatusLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.VirtualStatusLabel.Location = new System.Drawing.Point(6, 16);
             this.VirtualStatusLabel.Name = "VirtualStatusLabel";
-            this.VirtualStatusLabel.Size = new System.Drawing.Size(74, 25);
+            this.VirtualStatusLabel.Size = new System.Drawing.Size(40, 13);
             this.VirtualStatusLabel.TabIndex = 2;
             this.VirtualStatusLabel.Text = "Status:";
             // 
             // VirtualSaveStatusIndicator
             // 
             this.VirtualSaveStatusIndicator.AutoSize = true;
-            this.VirtualSaveStatusIndicator.Location = new System.Drawing.Point(95, 30);
-            this.VirtualSaveStatusIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.VirtualSaveStatusIndicator.Location = new System.Drawing.Point(52, 16);
             this.VirtualSaveStatusIndicator.Name = "VirtualSaveStatusIndicator";
-            this.VirtualSaveStatusIndicator.Size = new System.Drawing.Size(46, 25);
+            this.VirtualSaveStatusIndicator.Size = new System.Drawing.Size(27, 13);
             this.VirtualSaveStatusIndicator.TabIndex = 3;
             this.VirtualSaveStatusIndicator.Text = "N/A";
             // 
             // ForgetVirtual
             // 
-            this.ForgetVirtual.Location = new System.Drawing.Point(336, 85);
-            this.ForgetVirtual.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ForgetVirtual.Location = new System.Drawing.Point(183, 46);
             this.ForgetVirtual.Name = "ForgetVirtual";
-            this.ForgetVirtual.Size = new System.Drawing.Size(271, 42);
+            this.ForgetVirtual.Size = new System.Drawing.Size(148, 23);
             this.ForgetVirtual.TabIndex = 6;
             this.ForgetVirtual.Text = "Forget and Regenerate";
             this.ForgetVirtual.UseVisualStyleBackColor = true;
@@ -254,21 +242,18 @@
             this.OverviewWebsiteGroup.Controls.Add(this.SaveOverviewPageButton);
             this.OverviewWebsiteGroup.Controls.Add(this.OverviewPageBox);
             this.OverviewWebsiteGroup.Controls.Add(this.OverviewPageLabel);
-            this.OverviewWebsiteGroup.Location = new System.Drawing.Point(18, 327);
-            this.OverviewWebsiteGroup.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OverviewWebsiteGroup.Location = new System.Drawing.Point(10, 177);
             this.OverviewWebsiteGroup.Name = "OverviewWebsiteGroup";
-            this.OverviewWebsiteGroup.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.OverviewWebsiteGroup.Size = new System.Drawing.Size(618, 137);
+            this.OverviewWebsiteGroup.Size = new System.Drawing.Size(337, 74);
             this.OverviewWebsiteGroup.TabIndex = 9;
             this.OverviewWebsiteGroup.TabStop = false;
             this.OverviewWebsiteGroup.Text = "Overview Website";
             // 
             // SaveOverviewPageButton
             // 
-            this.SaveOverviewPageButton.Location = new System.Drawing.Point(469, 79);
-            this.SaveOverviewPageButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SaveOverviewPageButton.Location = new System.Drawing.Point(256, 43);
             this.SaveOverviewPageButton.Name = "SaveOverviewPageButton";
-            this.SaveOverviewPageButton.Size = new System.Drawing.Size(138, 42);
+            this.SaveOverviewPageButton.Size = new System.Drawing.Size(75, 23);
             this.SaveOverviewPageButton.TabIndex = 8;
             this.SaveOverviewPageButton.Text = "Set";
             this.SaveOverviewPageButton.UseVisualStyleBackColor = true;
@@ -276,34 +261,88 @@
             // 
             // OverviewPageBox
             // 
-            this.OverviewPageBox.Location = new System.Drawing.Point(180, 31);
-            this.OverviewPageBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OverviewPageBox.Location = new System.Drawing.Point(98, 17);
             this.OverviewPageBox.Name = "OverviewPageBox";
-            this.OverviewPageBox.Size = new System.Drawing.Size(420, 29);
+            this.OverviewPageBox.Size = new System.Drawing.Size(231, 20);
             this.OverviewPageBox.TabIndex = 7;
             // 
             // OverviewPageLabel
             // 
             this.OverviewPageLabel.AutoSize = true;
-            this.OverviewPageLabel.Location = new System.Drawing.Point(16, 37);
-            this.OverviewPageLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.OverviewPageLabel.Location = new System.Drawing.Point(9, 20);
             this.OverviewPageLabel.Name = "OverviewPageLabel";
-            this.OverviewPageLabel.Size = new System.Drawing.Size(151, 25);
+            this.OverviewPageLabel.Size = new System.Drawing.Size(83, 13);
             this.OverviewPageLabel.TabIndex = 0;
             this.OverviewPageLabel.Text = "Overview Page:";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.TimeoutLabel);
+            this.groupBox3.Controls.Add(this.TTLBox);
+            this.groupBox3.Controls.Add(this.SetPing);
+            this.groupBox3.Controls.Add(this.TimeoutBox);
+            this.groupBox3.Controls.Add(this.TTLLabel);
+            this.groupBox3.Location = new System.Drawing.Point(10, 257);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(337, 74);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Ping Time to Load";
+            // 
+            // TimeoutLabel
+            // 
+            this.TimeoutLabel.AutoSize = true;
+            this.TimeoutLabel.Location = new System.Drawing.Point(9, 20);
+            this.TimeoutLabel.Name = "TimeoutLabel";
+            this.TimeoutLabel.Size = new System.Drawing.Size(70, 13);
+            this.TimeoutLabel.TabIndex = 10;
+            this.TimeoutLabel.Text = "Timeout (ms):";
+            // 
+            // TTLBox
+            // 
+            this.TTLBox.Location = new System.Drawing.Point(85, 45);
+            this.TTLBox.Name = "TTLBox";
+            this.TTLBox.Size = new System.Drawing.Size(165, 20);
+            this.TTLBox.TabIndex = 9;
+            // 
+            // SetPing
+            // 
+            this.SetPing.Location = new System.Drawing.Point(256, 29);
+            this.SetPing.Name = "SetPing";
+            this.SetPing.Size = new System.Drawing.Size(75, 23);
+            this.SetPing.TabIndex = 8;
+            this.SetPing.Text = "Set";
+            this.SetPing.UseVisualStyleBackColor = true;
+            this.SetPing.Click += new System.EventHandler(this.SetPing_Click);
+            // 
+            // TimeoutBox
+            // 
+            this.TimeoutBox.Location = new System.Drawing.Point(85, 17);
+            this.TimeoutBox.Name = "TimeoutBox";
+            this.TimeoutBox.Size = new System.Drawing.Size(165, 20);
+            this.TimeoutBox.TabIndex = 7;
+            // 
+            // TTLLabel
+            // 
+            this.TTLLabel.AutoSize = true;
+            this.TTLLabel.Location = new System.Drawing.Point(9, 48);
+            this.TTLLabel.Name = "TTLLabel";
+            this.TTLLabel.Size = new System.Drawing.Size(52, 13);
+            this.TTLLabel.TabIndex = 0;
+            this.TTLLabel.Text = "TTL (ms):";
+            // 
             // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(653, 652);
+            this.ClientSize = new System.Drawing.Size(356, 353);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.OverviewWebsiteGroup);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PhhsicalListLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Settings";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
@@ -313,6 +352,8 @@
             this.groupBox2.PerformLayout();
             this.OverviewWebsiteGroup.ResumeLayout(false);
             this.OverviewWebsiteGroup.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +382,11 @@
         private System.Windows.Forms.Label OverviewPageLabel;
         private System.Windows.Forms.Button SaveOverviewPageButton;
         private System.Windows.Forms.TextBox OverviewPageBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button SetPing;
+        private System.Windows.Forms.TextBox TimeoutBox;
+        private System.Windows.Forms.Label TTLLabel;
+        private System.Windows.Forms.Label TimeoutLabel;
+        private System.Windows.Forms.TextBox TTLBox;
     }
 }

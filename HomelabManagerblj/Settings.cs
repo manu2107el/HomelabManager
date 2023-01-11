@@ -44,6 +44,8 @@ namespace HomelabManagerblj
             PhysicalPathLabel.Text = overviewForm.config.PhysicalSaveFile;
             VirtualFielPathIndicator.Text = overviewForm.config.VirtualSaveFile;
             OverviewPageBox.Text = overviewForm.config.overviewPage;
+            TTLBox.Text = Convert.ToString(overviewForm.config.ttl);
+            TimeoutBox.Text = Convert.ToString(overviewForm.config.timeout);
             Application.DoEvents();
         }
 
@@ -164,6 +166,7 @@ namespace HomelabManagerblj
         {
             overviewForm.config.overviewPage = OverviewPageBox.Text;
             overviewForm.filehandler.SaveConfig();
+            UpdateValues();
         }
 
         private void PhysicalPathLabel_Click(object sender, EventArgs e)
@@ -174,6 +177,29 @@ namespace HomelabManagerblj
         private void VirtualFielPathIndicator_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", overviewForm.config.VirtualSaveFile);
+        }
+
+        private void SetPing_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                overviewForm.config.ttl = Convert.ToInt32(TTLBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error while Saving TTL");
+            }
+            try
+            {
+                overviewForm.config.timeout = Convert.ToInt32(TimeoutBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error while Saving Timeout");
+            }
+            overviewForm.filehandler.SaveConfig();
+            UpdateValues();
+
         }
     }
 }

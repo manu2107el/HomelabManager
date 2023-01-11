@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Physical Systems", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Virtual Systems", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Physical Systems", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Virtual Systems", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OverviewForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.OpenSettings = new System.Windows.Forms.Button();
@@ -75,15 +75,17 @@
             this.panel1.Controls.Add(this.KumaPanelButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1251, 65);
+            this.panel1.Size = new System.Drawing.Size(2294, 120);
             this.panel1.TabIndex = 0;
             // 
             // OpenSettings
             // 
-            this.OpenSettings.Location = new System.Drawing.Point(570, 14);
+            this.OpenSettings.Location = new System.Drawing.Point(1045, 26);
+            this.OpenSettings.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.OpenSettings.Name = "OpenSettings";
-            this.OpenSettings.Size = new System.Drawing.Size(114, 35);
+            this.OpenSettings.Size = new System.Drawing.Size(209, 65);
             this.OpenSettings.TabIndex = 5;
             this.OpenSettings.Text = "Settings";
             this.OpenSettings.UseVisualStyleBackColor = true;
@@ -91,9 +93,10 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(428, 14);
+            this.saveButton.Location = new System.Drawing.Point(785, 26);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(123, 35);
+            this.saveButton.Size = new System.Drawing.Size(226, 65);
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -101,9 +104,10 @@
             // 
             // DetailViewButton
             // 
-            this.DetailViewButton.Location = new System.Drawing.Point(289, 14);
+            this.DetailViewButton.Location = new System.Drawing.Point(530, 26);
+            this.DetailViewButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.DetailViewButton.Name = "DetailViewButton";
-            this.DetailViewButton.Size = new System.Drawing.Size(133, 35);
+            this.DetailViewButton.Size = new System.Drawing.Size(244, 65);
             this.DetailViewButton.TabIndex = 3;
             this.DetailViewButton.Text = "Open Details";
             this.DetailViewButton.UseVisualStyleBackColor = true;
@@ -111,9 +115,10 @@
             // 
             // DeleteSystemsButton
             // 
-            this.DeleteSystemsButton.Location = new System.Drawing.Point(139, 14);
+            this.DeleteSystemsButton.Location = new System.Drawing.Point(255, 26);
+            this.DeleteSystemsButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.DeleteSystemsButton.Name = "DeleteSystemsButton";
-            this.DeleteSystemsButton.Size = new System.Drawing.Size(144, 35);
+            this.DeleteSystemsButton.Size = new System.Drawing.Size(264, 65);
             this.DeleteSystemsButton.TabIndex = 2;
             this.DeleteSystemsButton.Text = "Delete Selected Systems";
             this.DeleteSystemsButton.UseVisualStyleBackColor = true;
@@ -121,9 +126,10 @@
             // 
             // OpenSettingsButton
             // 
-            this.OpenSettingsButton.Location = new System.Drawing.Point(12, 14);
+            this.OpenSettingsButton.Location = new System.Drawing.Point(22, 26);
+            this.OpenSettingsButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.OpenSettingsButton.Name = "OpenSettingsButton";
-            this.OpenSettingsButton.Size = new System.Drawing.Size(121, 35);
+            this.OpenSettingsButton.Size = new System.Drawing.Size(222, 65);
             this.OpenSettingsButton.TabIndex = 1;
             this.OpenSettingsButton.Text = "Refresh";
             this.OpenSettingsButton.UseVisualStyleBackColor = true;
@@ -131,9 +137,10 @@
             // 
             // KumaPanelButton
             // 
-            this.KumaPanelButton.Location = new System.Drawing.Point(1091, 12);
+            this.KumaPanelButton.Location = new System.Drawing.Point(2000, 22);
+            this.KumaPanelButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.KumaPanelButton.Name = "KumaPanelButton";
-            this.KumaPanelButton.Size = new System.Drawing.Size(148, 39);
+            this.KumaPanelButton.Size = new System.Drawing.Size(271, 72);
             this.KumaPanelButton.TabIndex = 0;
             this.KumaPanelButton.Text = "Launch Overview Panel";
             this.KumaPanelButton.UseVisualStyleBackColor = true;
@@ -152,17 +159,18 @@
             this.systemList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.systemList.FullRowSelect = true;
             this.systemList.GridLines = true;
-            listViewGroup1.Header = "Physical Systems";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "Virtual Systems";
-            listViewGroup2.Name = "listViewGroup2";
+            listViewGroup3.Header = "Physical Systems";
+            listViewGroup3.Name = "listViewGroup1";
+            listViewGroup4.Header = "Virtual Systems";
+            listViewGroup4.Name = "listViewGroup2";
             this.systemList.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup3,
+            listViewGroup4});
             this.systemList.HideSelection = false;
-            this.systemList.Location = new System.Drawing.Point(0, 65);
+            this.systemList.Location = new System.Drawing.Point(0, 120);
+            this.systemList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.systemList.Name = "systemList";
-            this.systemList.Size = new System.Drawing.Size(1251, 492);
+            this.systemList.Size = new System.Drawing.Size(2294, 908);
             this.systemList.SmallImageList = this.imageList1;
             this.systemList.TabIndex = 1;
             this.systemList.UseCompatibleStateImageBehavior = false;
@@ -220,17 +228,18 @@
             this.panel2.Controls.Add(this.NewVirtualRadioButton);
             this.panel2.Controls.Add(this.NewPhsyicalRadioButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(945, 65);
+            this.panel2.Location = new System.Drawing.Point(1733, 120);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(306, 492);
+            this.panel2.Size = new System.Drawing.Size(561, 908);
             this.panel2.TabIndex = 4;
-   
             // 
             // CreateNewButton
             // 
-            this.CreateNewButton.Location = new System.Drawing.Point(6, 231);
+            this.CreateNewButton.Location = new System.Drawing.Point(11, 426);
+            this.CreateNewButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CreateNewButton.Name = "CreateNewButton";
-            this.CreateNewButton.Size = new System.Drawing.Size(235, 23);
+            this.CreateNewButton.Size = new System.Drawing.Size(431, 42);
             this.CreateNewButton.TabIndex = 7;
             this.CreateNewButton.Text = "Create";
             this.CreateNewButton.UseVisualStyleBackColor = true;
@@ -239,121 +248,138 @@
             // NoneBox2
             // 
             this.NoneBox2.AutoSize = true;
-            this.NoneBox2.Location = new System.Drawing.Point(248, 206);
+            this.NoneBox2.Location = new System.Drawing.Point(455, 380);
+            this.NoneBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NoneBox2.Name = "NoneBox2";
-            this.NoneBox2.Size = new System.Drawing.Size(52, 17);
+            this.NoneBox2.Size = new System.Drawing.Size(76, 28);
             this.NoneBox2.TabIndex = 5;
             this.NoneBox2.Text = "None";
             this.NoneBox2.UseVisualStyleBackColor = true;
+            this.NoneBox2.CheckedChanged += new System.EventHandler(this.NoneBox2_CheckedChanged);
             // 
             // NoneBox1
             // 
             this.NoneBox1.AutoSize = true;
-            this.NoneBox1.Location = new System.Drawing.Point(248, 167);
+            this.NoneBox1.Location = new System.Drawing.Point(455, 308);
+            this.NoneBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NoneBox1.Name = "NoneBox1";
-            this.NoneBox1.Size = new System.Drawing.Size(52, 17);
+            this.NoneBox1.Size = new System.Drawing.Size(76, 28);
             this.NoneBox1.TabIndex = 4;
             this.NoneBox1.Text = "None";
             this.NoneBox1.UseVisualStyleBackColor = true;
+            this.NoneBox1.CheckedChanged += new System.EventHandler(this.NoneBox1_CheckedChanged);
             // 
             // NewManagementPortalLabel
             // 
             this.NewManagementPortalLabel.AutoSize = true;
-            this.NewManagementPortalLabel.Location = new System.Drawing.Point(3, 188);
+            this.NewManagementPortalLabel.Location = new System.Drawing.Point(6, 347);
+            this.NewManagementPortalLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.NewManagementPortalLabel.Name = "NewManagementPortalLabel";
-            this.NewManagementPortalLabel.Size = new System.Drawing.Size(99, 13);
+            this.NewManagementPortalLabel.Size = new System.Drawing.Size(173, 24);
             this.NewManagementPortalLabel.TabIndex = 9;
             this.NewManagementPortalLabel.Text = "Management Portal";
             // 
             // NewIPAddressLabel
             // 
             this.NewIPAddressLabel.AutoSize = true;
-            this.NewIPAddressLabel.Location = new System.Drawing.Point(3, 149);
+            this.NewIPAddressLabel.Location = new System.Drawing.Point(6, 275);
+            this.NewIPAddressLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.NewIPAddressLabel.Name = "NewIPAddressLabel";
-            this.NewIPAddressLabel.Size = new System.Drawing.Size(58, 13);
+            this.NewIPAddressLabel.Size = new System.Drawing.Size(101, 24);
             this.NewIPAddressLabel.TabIndex = 8;
             this.NewIPAddressLabel.Text = "IP Address";
             // 
             // NewNameLabel
             // 
             this.NewNameLabel.AutoSize = true;
-            this.NewNameLabel.Location = new System.Drawing.Point(3, 111);
+            this.NewNameLabel.Location = new System.Drawing.Point(6, 205);
+            this.NewNameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.NewNameLabel.Name = "NewNameLabel";
-            this.NewNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NewNameLabel.Size = new System.Drawing.Size(61, 24);
             this.NewNameLabel.TabIndex = 7;
             this.NewNameLabel.Text = "Name";
             // 
             // MotherSystemLabel
             // 
             this.MotherSystemLabel.AutoSize = true;
-            this.MotherSystemLabel.Location = new System.Drawing.Point(3, 70);
+            this.MotherSystemLabel.Location = new System.Drawing.Point(6, 129);
+            this.MotherSystemLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.MotherSystemLabel.Name = "MotherSystemLabel";
-            this.MotherSystemLabel.Size = new System.Drawing.Size(77, 13);
+            this.MotherSystemLabel.Size = new System.Drawing.Size(135, 24);
             this.MotherSystemLabel.TabIndex = 6;
             this.MotherSystemLabel.Text = "Mother System";
             // 
             // MotherSelector
             // 
             this.MotherSelector.FormattingEnabled = true;
-            this.MotherSelector.Location = new System.Drawing.Point(3, 86);
+            this.MotherSelector.Location = new System.Drawing.Point(6, 159);
+            this.MotherSelector.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MotherSelector.Name = "MotherSelector";
-            this.MotherSelector.Size = new System.Drawing.Size(238, 21);
+            this.MotherSelector.Size = new System.Drawing.Size(433, 32);
             this.MotherSelector.TabIndex = 1;
             // 
             // NewIP
             // 
-            this.NewIP.Location = new System.Drawing.Point(3, 165);
+            this.NewIP.Location = new System.Drawing.Point(6, 305);
+            this.NewIP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NewIP.Name = "NewIP";
-            this.NewIP.Size = new System.Drawing.Size(238, 20);
+            this.NewIP.Size = new System.Drawing.Size(433, 29);
             this.NewIP.TabIndex = 3;
             // 
             // NewAddress
             // 
-            this.NewAddress.Location = new System.Drawing.Point(3, 204);
+            this.NewAddress.Location = new System.Drawing.Point(6, 377);
+            this.NewAddress.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NewAddress.Name = "NewAddress";
-            this.NewAddress.Size = new System.Drawing.Size(238, 20);
+            this.NewAddress.Size = new System.Drawing.Size(433, 29);
             this.NewAddress.TabIndex = 4;
             // 
             // NewName
             // 
-            this.NewName.Location = new System.Drawing.Point(3, 127);
+            this.NewName.Location = new System.Drawing.Point(6, 234);
+            this.NewName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NewName.Name = "NewName";
-            this.NewName.Size = new System.Drawing.Size(238, 20);
+            this.NewName.Size = new System.Drawing.Size(433, 29);
             this.NewName.TabIndex = 2;
             this.NewName.Tag = "";
             // 
             // NewVirtualRadioButton
             // 
             this.NewVirtualRadioButton.AutoSize = true;
-            this.NewVirtualRadioButton.Location = new System.Drawing.Point(33, 23);
+            this.NewVirtualRadioButton.Location = new System.Drawing.Point(60, 42);
+            this.NewVirtualRadioButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NewVirtualRadioButton.Name = "NewVirtualRadioButton";
-            this.NewVirtualRadioButton.Size = new System.Drawing.Size(54, 17);
+            this.NewVirtualRadioButton.Size = new System.Drawing.Size(80, 28);
             this.NewVirtualRadioButton.TabIndex = 9;
             this.NewVirtualRadioButton.TabStop = true;
             this.NewVirtualRadioButton.Text = "Virtual";
             this.NewVirtualRadioButton.UseVisualStyleBackColor = true;
+            this.NewVirtualRadioButton.CheckedChanged += new System.EventHandler(this.NewVirtualRadioButton_CheckedChanged_1);
             this.NewVirtualRadioButton.Click += new System.EventHandler(this.NewVirtualRadioButton_CheckedChanged);
             // 
             // NewPhsyicalRadioButton
             // 
             this.NewPhsyicalRadioButton.AutoSize = true;
-            this.NewPhsyicalRadioButton.Location = new System.Drawing.Point(132, 23);
+            this.NewPhsyicalRadioButton.Location = new System.Drawing.Point(242, 42);
+            this.NewPhsyicalRadioButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.NewPhsyicalRadioButton.Name = "NewPhsyicalRadioButton";
-            this.NewPhsyicalRadioButton.Size = new System.Drawing.Size(64, 17);
+            this.NewPhsyicalRadioButton.Size = new System.Drawing.Size(97, 28);
             this.NewPhsyicalRadioButton.TabIndex = 0;
             this.NewPhsyicalRadioButton.TabStop = true;
             this.NewPhsyicalRadioButton.Text = "Physical";
             this.NewPhsyicalRadioButton.UseVisualStyleBackColor = true;
+            this.NewPhsyicalRadioButton.CheckedChanged += new System.EventHandler(this.NewPhsyicalRadioButton_CheckedChanged_1);
             this.NewPhsyicalRadioButton.Click += new System.EventHandler(this.NewPhsyicalRadioButton_CheckedChanged);
             // 
             // OverviewForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 557);
+            this.ClientSize = new System.Drawing.Size(2294, 1028);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.systemList);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "OverviewForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Overview_Load);

@@ -15,16 +15,18 @@ namespace HomelabManagerblj
         Physical physical;
         OverviewForm overviewForm;
         List<Virtual> children = new List<Virtual>();
+        
         public PhysicalSystemDetailForm(OverviewForm form, Physical system)
         {
             InitializeComponent();
             overviewForm = form;
             physical = system;
+            this.KeyUp += new KeyEventHandler(Form_KeyUp);
         }
 
         private void DetailForm_Load(object sender, EventArgs e)
         {
-            Refresh();
+            
             if (physical.IgnoreIP)
             {
                 DisableIPCheckbox.Checked = true;
@@ -33,6 +35,7 @@ namespace HomelabManagerblj
             {
                 DisableAdminPanelCheckbox.Checked = true;
             }
+            Refresh();
         }
         public void Save()
         {
@@ -57,35 +60,49 @@ namespace HomelabManagerblj
             physical.Name = PhysicalSystemNameLabel.Text;
             physical.SelfRepair();
         }
+        private void Form_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Save();
+                Refresh();
+            }
+        }
         public void Refresh()
         {
             if (DisableIPCheckbox.Checked)
             {
                 IPDetailLabelShow.Enabled = false;
+                CopyIPButton.Enabled = false;
                 IPDetailLabelShow.Text = "";
             }
             if (!DisableIPCheckbox.Checked)
             {
                 IPDetailLabelShow.Enabled = true;
+                CopyIPButton.Enabled = true;
                 IPDetailLabelShow.Text = physical.IP;
             }
             if (DisableAdminPanelCheckbox.Checked)
             {
                 AdminPanelDetailLabelShow.Enabled = false;
+                OpenAdminPanelButton.Enabled = false;
                 AdminPanelDetailLabelShow.Text = "";
             }
             if (!DisableAdminPanelCheckbox.Checked)
             {
                 AdminPanelDetailLabelShow.Enabled = true;
+                OpenAdminPanelButton.Enabled = true;
                 AdminPanelDetailLabelShow.Text = physical.PortalLink;
             }
             
             PhysicalSystemNameLabel.Text = physical.Name;
             PhysicalSystemStatusLabel.Text = physical.Status;
             FindChildren();
-            ChildrenCountLabel.Text = Convert.ToString(ListChildren());
+                ChildrenCountLabel.Text = Convert.ToString(ListChildren());
+            
             StatusPictureBox.Image = imageList2.Images[physical.StatusIconIndex];
             overviewForm.Refresh();
+            Application.DoEvents();
         }
         public void FindChildren()
         {
@@ -98,6 +115,7 @@ namespace HomelabManagerblj
                 }
             }
         }
+       
         public int ListChildren()
         {
             ChildrenList.Items.Clear();
@@ -139,11 +157,14 @@ namespace HomelabManagerblj
                 }
             }
         }
+       
 
         private void saveSettings_Click(object sender, EventArgs e)
         {
+            saveSettings.Enabled = false;
             Save();
             Refresh();
+            saveSettings.Enabled = true;
         }
 
         private void OpenAdminPanelButton_Click(object sender, EventArgs e)
@@ -160,5 +181,12 @@ namespace HomelabManagerblj
         {
             Refresh();
         }
+
+        private void DisableAdminPanelCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+       
     }
 }

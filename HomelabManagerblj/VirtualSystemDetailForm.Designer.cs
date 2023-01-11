@@ -52,10 +52,9 @@
             // 
             this.VirtualSystemStatusLabel.AutoSize = true;
             this.VirtualSystemStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VirtualSystemStatusLabel.Location = new System.Drawing.Point(38, 282);
-            this.VirtualSystemStatusLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.VirtualSystemStatusLabel.Location = new System.Drawing.Point(104, 169);
             this.VirtualSystemStatusLabel.Name = "VirtualSystemStatusLabel";
-            this.VirtualSystemStatusLabel.Size = new System.Drawing.Size(221, 71);
+            this.VirtualSystemStatusLabel.Size = new System.Drawing.Size(126, 39);
             this.VirtualSystemStatusLabel.TabIndex = 10;
             this.VirtualSystemStatusLabel.Text = "Status:";
             // 
@@ -63,10 +62,9 @@
             // 
             this.IPDetailLabel.AutoSize = true;
             this.IPDetailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IPDetailLabel.Location = new System.Drawing.Point(22, 102);
-            this.IPDetailLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.IPDetailLabel.Location = new System.Drawing.Point(12, 55);
             this.IPDetailLabel.Name = "IPDetailLabel";
-            this.IPDetailLabel.Size = new System.Drawing.Size(105, 71);
+            this.IPDetailLabel.Size = new System.Drawing.Size(59, 39);
             this.IPDetailLabel.TabIndex = 15;
             this.IPDetailLabel.Text = "IP:";
             // 
@@ -74,10 +72,9 @@
             // 
             this.AdminPanelLabel.AutoSize = true;
             this.AdminPanelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminPanelLabel.Location = new System.Drawing.Point(22, 174);
-            this.AdminPanelLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.AdminPanelLabel.Location = new System.Drawing.Point(12, 94);
             this.AdminPanelLabel.Name = "AdminPanelLabel";
-            this.AdminPanelLabel.Size = new System.Drawing.Size(395, 71);
+            this.AdminPanelLabel.Size = new System.Drawing.Size(223, 39);
             this.AdminPanelLabel.TabIndex = 14;
             this.AdminPanelLabel.Text = "Admin Panel:";
             // 
@@ -85,19 +82,17 @@
             // 
             this.MotherLabel.AutoSize = true;
             this.MotherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MotherLabel.Location = new System.Drawing.Point(908, 22);
-            this.MotherLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.MotherLabel.Location = new System.Drawing.Point(495, 12);
             this.MotherLabel.Name = "MotherLabel";
-            this.MotherLabel.Size = new System.Drawing.Size(144, 42);
+            this.MotherLabel.Size = new System.Drawing.Size(85, 25);
             this.MotherLabel.TabIndex = 12;
             this.MotherLabel.Text = "Mother:";
             // 
             // StatusPictureBox
             // 
-            this.StatusPictureBox.Location = new System.Drawing.Point(280, 257);
-            this.StatusPictureBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.StatusPictureBox.Location = new System.Drawing.Point(19, 138);
             this.StatusPictureBox.Name = "StatusPictureBox";
-            this.StatusPictureBox.Size = new System.Drawing.Size(145, 133);
+            this.StatusPictureBox.Size = new System.Drawing.Size(79, 72);
             this.StatusPictureBox.TabIndex = 18;
             this.StatusPictureBox.TabStop = false;
             // 
@@ -113,46 +108,41 @@
             // VirtualSystemNameLabel
             // 
             this.VirtualSystemNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VirtualSystemNameLabel.Location = new System.Drawing.Point(22, 22);
-            this.VirtualSystemNameLabel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.VirtualSystemNameLabel.Location = new System.Drawing.Point(12, 12);
             this.VirtualSystemNameLabel.Name = "VirtualSystemNameLabel";
-            this.VirtualSystemNameLabel.Size = new System.Drawing.Size(871, 55);
+            this.VirtualSystemNameLabel.Size = new System.Drawing.Size(477, 35);
             this.VirtualSystemNameLabel.TabIndex = 1;
             // 
             // IPDetailLabelShow
             // 
             this.IPDetailLabelShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IPDetailLabelShow.Location = new System.Drawing.Point(455, 103);
-            this.IPDetailLabelShow.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.IPDetailLabelShow.Location = new System.Drawing.Point(248, 56);
             this.IPDetailLabelShow.Name = "IPDetailLabelShow";
-            this.IPDetailLabelShow.Size = new System.Drawing.Size(438, 55);
+            this.IPDetailLabelShow.Size = new System.Drawing.Size(241, 35);
             this.IPDetailLabelShow.TabIndex = 2;
             // 
             // AdminPanelDetailLabelShow
             // 
             this.AdminPanelDetailLabelShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminPanelDetailLabelShow.Location = new System.Drawing.Point(455, 179);
-            this.AdminPanelDetailLabelShow.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AdminPanelDetailLabelShow.Location = new System.Drawing.Point(248, 97);
             this.AdminPanelDetailLabelShow.Name = "AdminPanelDetailLabelShow";
-            this.AdminPanelDetailLabelShow.Size = new System.Drawing.Size(438, 55);
+            this.AdminPanelDetailLabelShow.Size = new System.Drawing.Size(241, 35);
             this.AdminPanelDetailLabelShow.TabIndex = 5;
             // 
             // MotherChancher
             // 
             this.MotherChancher.FormattingEnabled = true;
-            this.MotherChancher.ItemHeight = 24;
-            this.MotherChancher.Location = new System.Drawing.Point(1074, 30);
-            this.MotherChancher.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MotherChancher.ItemHeight = 13;
+            this.MotherChancher.Location = new System.Drawing.Point(586, 16);
             this.MotherChancher.Name = "MotherChancher";
-            this.MotherChancher.Size = new System.Drawing.Size(385, 32);
+            this.MotherChancher.Size = new System.Drawing.Size(212, 21);
             this.MotherChancher.TabIndex = 9;
             // 
             // saveSettings
             // 
-            this.saveSettings.Location = new System.Drawing.Point(522, 255);
-            this.saveSettings.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.saveSettings.Location = new System.Drawing.Point(285, 138);
             this.saveSettings.Name = "saveSettings";
-            this.saveSettings.Size = new System.Drawing.Size(304, 66);
+            this.saveSettings.Size = new System.Drawing.Size(166, 36);
             this.saveSettings.TabIndex = 8;
             this.saveSettings.Text = "Save Chanches and Update";
             this.saveSettings.UseVisualStyleBackColor = true;
@@ -160,10 +150,9 @@
             // 
             // CopyIPButton
             // 
-            this.CopyIPButton.Location = new System.Drawing.Point(908, 131);
-            this.CopyIPButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CopyIPButton.Location = new System.Drawing.Point(495, 71);
             this.CopyIPButton.Name = "CopyIPButton";
-            this.CopyIPButton.Size = new System.Drawing.Size(136, 42);
+            this.CopyIPButton.Size = new System.Drawing.Size(74, 23);
             this.CopyIPButton.TabIndex = 4;
             this.CopyIPButton.Text = "Copy";
             this.CopyIPButton.UseVisualStyleBackColor = true;
@@ -171,10 +160,9 @@
             // 
             // OpenAdminPanelButton
             // 
-            this.OpenAdminPanelButton.Location = new System.Drawing.Point(906, 203);
-            this.OpenAdminPanelButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OpenAdminPanelButton.Location = new System.Drawing.Point(494, 110);
             this.OpenAdminPanelButton.Name = "OpenAdminPanelButton";
-            this.OpenAdminPanelButton.Size = new System.Drawing.Size(138, 42);
+            this.OpenAdminPanelButton.Size = new System.Drawing.Size(75, 23);
             this.OpenAdminPanelButton.TabIndex = 7;
             this.OpenAdminPanelButton.Text = "Open";
             this.OpenAdminPanelButton.UseVisualStyleBackColor = true;
@@ -183,10 +171,9 @@
             // DisableIPCheckbox
             // 
             this.DisableIPCheckbox.AutoSize = true;
-            this.DisableIPCheckbox.Location = new System.Drawing.Point(908, 103);
-            this.DisableIPCheckbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DisableIPCheckbox.Location = new System.Drawing.Point(495, 56);
             this.DisableIPCheckbox.Name = "DisableIPCheckbox";
-            this.DisableIPCheckbox.Size = new System.Drawing.Size(85, 29);
+            this.DisableIPCheckbox.Size = new System.Drawing.Size(52, 17);
             this.DisableIPCheckbox.TabIndex = 3;
             this.DisableIPCheckbox.Text = "None";
             this.DisableIPCheckbox.UseVisualStyleBackColor = true;
@@ -195,10 +182,9 @@
             // DisableAdminPanelCheckbox
             // 
             this.DisableAdminPanelCheckbox.AutoSize = true;
-            this.DisableAdminPanelCheckbox.Location = new System.Drawing.Point(906, 179);
-            this.DisableAdminPanelCheckbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DisableAdminPanelCheckbox.Location = new System.Drawing.Point(494, 97);
             this.DisableAdminPanelCheckbox.Name = "DisableAdminPanelCheckbox";
-            this.DisableAdminPanelCheckbox.Size = new System.Drawing.Size(85, 29);
+            this.DisableAdminPanelCheckbox.Size = new System.Drawing.Size(52, 17);
             this.DisableAdminPanelCheckbox.TabIndex = 6;
             this.DisableAdminPanelCheckbox.Text = "None";
             this.DisableAdminPanelCheckbox.UseVisualStyleBackColor = true;
@@ -206,9 +192,9 @@
             // 
             // VirtualSystemDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1485, 401);
+            this.ClientSize = new System.Drawing.Size(810, 217);
             this.Controls.Add(this.DisableAdminPanelCheckbox);
             this.Controls.Add(this.DisableIPCheckbox);
             this.Controls.Add(this.OpenAdminPanelButton);
@@ -223,7 +209,6 @@
             this.Controls.Add(this.IPDetailLabel);
             this.Controls.Add(this.AdminPanelLabel);
             this.Controls.Add(this.MotherLabel);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "VirtualSystemDetailForm";
             this.Text = "VirtualSystemDetailForm";
             this.Load += new System.EventHandler(this.VirtualSystemDetailForm_Load);

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,7 +53,7 @@ namespace HomelabManagerblj
             
             foreach (Physical systemList in PhysicalMain)
             {
-                systemList.StatusUpdate();
+                systemList.StatusUpdate(config.ttl, config.timeout);
                 ListViewItem item = new ListViewItem(new[] { systemList.Name, systemList.IP, systemList.Portal, Convert.ToString(systemList.Status), "Is Physical"});
                 this.systemList.Items.Add(item);
                
@@ -63,7 +64,7 @@ namespace HomelabManagerblj
             }
             foreach (Virtual systemList in VirtualMain)
             {
-                systemList.StatusUpdate();
+                systemList.StatusUpdate(config.ttl, config.timeout);
                 ListViewItem item = new ListViewItem(new[] { systemList.Name, systemList.IP, systemList.Portal, systemList.Status, Convert.ToString(systemList.Mother) });
                 this.systemList.Items.Add(item);
                 this.systemList.Items[i].Group = this.systemList.Groups[1];
@@ -76,7 +77,14 @@ namespace HomelabManagerblj
             {
                 MotherSelector.Items.Add(systemList);
             }
-         
+            if(!NewPhsyicalRadioButton.Checked && !NewVirtualRadioButton.Checked)
+            {
+                CreateNewButton.Enabled = false;
+            }
+            if(NewVirtualRadioButton.Checked || NewPhsyicalRadioButton.Checked)
+            {
+                CreateNewButton.Enabled = true;
+            }
             
         }
         
@@ -137,12 +145,12 @@ namespace HomelabManagerblj
         public void SaveLists()
         {
             XmlSerializer PhysicalSaver = new XmlSerializer(typeof(List<Physical>));
-            using (TextWriter writer = new StreamWriter("PhysicalList.xml"))
+            using (TextWriter writer = new StreamWriter(config.PhysicalSaveFile))
             {
                 PhysicalSaver.Serialize(writer, PhysicalMain);
             }
             XmlSerializer VirtualSaver = new XmlSerializer(typeof(List<Virtual>));
-            using (TextWriter writer = new StreamWriter("VirtualList.xml"))
+            using (TextWriter writer = new StreamWriter(config.VirtualSaveFile))
             {
                 VirtualSaver.Serialize(writer, VirtualMain);
             }
@@ -252,7 +260,14 @@ namespace HomelabManagerblj
                     if (string.IsNullOrEmpty(NewIP.Text) == false)
                     {
                         newIP = NewIP.Text;
-                        newIPSet = true;
+                        if (IsValidIP(newIP))
+                        {
+                            newIPSet = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("IP is invalid");
+                        }
                     }
                     else
                     {
@@ -269,7 +284,19 @@ namespace HomelabManagerblj
                     if (string.IsNullOrEmpty(NewAddress.Text) == false)
                     {
                         newPortalLink = NewAddress.Text;
-                        newPortalSet |= true;
+                        Match match = Regex.Match(newPortalLink, @"(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})|(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}");
+
+                        if (match.Success)
+                        {
+                            newPortal = match.Value;
+                            newPortalSet = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please Make sure your link is valid (with http(s)://)");
+                            newPortal = "Invalid.Set";
+                        }
+                        
                     }
                     else
                     {
@@ -281,7 +308,7 @@ namespace HomelabManagerblj
                     Physical system = new Physical();
                     system.Name = newName;
                     system.IP = newIP;
-                    
+                    system.Portal= newPortal;
                     system.PortalLink = newPortalLink;
                     system.IgnorePortal = ignorePortal;
                     system.IgnoreIP = ignoreIP;
@@ -314,7 +341,14 @@ namespace HomelabManagerblj
                     if (string.IsNullOrEmpty(NewIP.Text) == false)
                     {
                         newIP = NewIP.Text;
-                        newIPSet = true;
+                        if (IsValidIP(newIP))
+                        {
+                            newIPSet = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("IP is invalid");
+                        }
                     }
                     else
                     {
@@ -331,7 +365,19 @@ namespace HomelabManagerblj
                     if (string.IsNullOrEmpty(NewAddress.Text) == false)
                     {
                         newPortalLink = NewAddress.Text;
-                        newPortalSet |= true;
+                        Match match = Regex.Match(newPortalLink, @"(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})|(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}");
+
+                        if (match.Success)
+                        {
+                            newPortal = match.Value;
+                            newPortalSet = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please Make sure your link is valid (with http(s)://)");
+                            newPortal = "Invalid.Set";
+                        }
+                        
                     }
                     else
                     {
@@ -344,6 +390,7 @@ namespace HomelabManagerblj
                     system.Mother = MotherSelector.SelectedItem as Physical;
                     system.Name = newName;
                     system.IP = newIP;
+                    system.Portal = newPortal;
                     system.PortalLink = newPortalLink;
                     system.IgnorePortal = ignorePortal;
                     system.IgnoreIP = ignoreIP;
@@ -370,7 +417,81 @@ namespace HomelabManagerblj
             settings.ShowDialog();
         }
 
-   
+        private void NoneBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NoneBox2.Checked)
+            {
+                NewAddress.Enabled=false;
+            }
+            if (!NoneBox2.Checked)
+            {
+                NewAddress.Enabled = true;
+            }
+        }
+
+        private void NoneBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NoneBox1.Checked)
+            {
+                NewIP.Enabled=false ;
+            }
+            if (!NoneBox1.Checked)
+            {
+                NewIP.Enabled= true ;
+            }
+        }
+        public bool IsValidIP(string ip)
+        {
+            if (String.IsNullOrEmpty(ip))
+            {
+                return false;
+            }
+
+            // Split the IP address into its octets
+            string[] octets = ip.Split('.');
+
+            // Check if there are exactly 4 octets
+            if (octets.Length != 4)
+            {
+                return false;
+            }
+
+            // Check if each octet is a valid integer between 0 and 255
+            for (int i = 0; i < octets.Length; i++)
+            {
+                int octet;
+                if (!int.TryParse(octets[i], out octet) || octet < 0 || octet > 255)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void NewVirtualRadioButton_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (!NewPhsyicalRadioButton.Checked && !NewVirtualRadioButton.Checked)
+            {
+                CreateNewButton.Enabled = false;
+            }
+            if (NewVirtualRadioButton.Checked || NewPhsyicalRadioButton.Checked)
+            {
+                CreateNewButton.Enabled = true;
+            }
+        }
+
+        private void NewPhsyicalRadioButton_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (!NewPhsyicalRadioButton.Checked && !NewVirtualRadioButton.Checked)
+            {
+                CreateNewButton.Enabled = false;
+            }
+            if (NewVirtualRadioButton.Checked || NewPhsyicalRadioButton.Checked)
+            {
+                CreateNewButton.Enabled = true;
+            }
+        }
     }
     
 }
