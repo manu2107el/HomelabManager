@@ -512,15 +512,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:HomelabManager"
-        "ProductCode" = "8:{F9E9BBED-77BA-4CA6-8C12-B467A0361C16}"
-        "PackageCode" = "8:{436B014A-D49C-43C6-94A5-D6322C3D5E25}"
+        "ProductCode" = "8:{B84EE8E2-9CD0-49FF-9C64-5ED50EEF779C}"
+        "PackageCode" = "8:{85EBFD07-D6E6-497E-BED7-8CAB207E031C}"
         "UpgradeCode" = "8:{22C57681-5AF2-4E50-A54A-1B63522E16DB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.1.1"
+        "ProductVersion" = "8:0.1.2"
         "Manufacturer" = "8:WIT"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -635,7 +635,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1047B85A22B046F7887A95CB67426367"
             {
-            "Name" = "8:HomeLab Manager (Rc2)"
+            "Name" = "8:HomeLab Manager (Rc3)"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
