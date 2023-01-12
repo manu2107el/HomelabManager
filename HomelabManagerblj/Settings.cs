@@ -79,7 +79,7 @@ namespace HomelabManagerblj
         private void FindVirtual_Click(object sender, EventArgs e)
         {
             string message = "This will Discard any unsaved chanches!";
-            string caption = "Continue?";
+            string caption = "WARNING";
             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
@@ -101,22 +101,22 @@ namespace HomelabManagerblj
         private void FindPhysical_Click(object sender, EventArgs e)
         {
             string message = "This will Discard any unsaved chanches!";
-            string caption = "Continue?";
+            string caption = "WARNING";
             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-OpenFileDialog openPhysical = new OpenFileDialog();
-            openPhysical.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
-            if (openPhysical.ShowDialog() == DialogResult.OK)
-            {
-                overviewForm.config.PhysicalSaveFile = openPhysical.FileName;
+                OpenFileDialog openPhysical = new OpenFileDialog();
+                openPhysical.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+                if (openPhysical.ShowDialog() == DialogResult.OK)
+                {
+                    overviewForm.config.PhysicalSaveFile = openPhysical.FileName;
+                }
+                overviewForm.filehandler.SaveConfig();
+                UpdateValues1();
             }
-            overviewForm.filehandler.SaveConfig();
-            UpdateValues1();
-            }
-            
+
         }
         public void ImportPhysical()
         {
@@ -201,24 +201,32 @@ OpenFileDialog openPhysical = new OpenFileDialog();
 
         private void SetPing_Click(object sender, EventArgs e)
         {
-            try
+            string message = "Messing with these Values is may Impact status accuracy!";
+            string caption = "WARNING";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                overviewForm.config.ttl = Convert.ToInt32(TTLBox.Text);
+                try
+                {
+                    overviewForm.config.ttl = Convert.ToInt32(TTLBox.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Error while Saving TTL");
+                }
+                try
+                {
+                    overviewForm.config.timeout = Convert.ToInt32(TimeoutBox.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Error while Saving Timeout");
+                }
+                overviewForm.filehandler.SaveConfig();
+                UpdateValues();
             }
-            catch
-            {
-                MessageBox.Show("Error while Saving TTL");
-            }
-            try
-            {
-                overviewForm.config.timeout = Convert.ToInt32(TimeoutBox.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Error while Saving Timeout");
-            }
-            overviewForm.filehandler.SaveConfig();
-            UpdateValues();
 
         }
         public void UpdateValues1()

@@ -15,20 +15,20 @@ namespace HomelabManagerblj
     public partial class MissingListDialog : Form
     {
         OverviewForm OverviewFormlocal;
-       
-        
+
+
         public MissingListDialog(OverviewForm overviewForm)
         {
             InitializeComponent();
-            
+
             OverviewFormlocal = overviewForm;
-            
+
         }
         public void UpdateValues()
         {
             OverviewFormlocal.filehandler.IntegrityCheck();
-            OverviewFormlocal.PhysicalMain=OverviewFormlocal.filehandler.ReadPhysicalSave();
-            OverviewFormlocal.VirtualMain=OverviewFormlocal.filehandler.ReadVirtualSave();
+            OverviewFormlocal.PhysicalMain = OverviewFormlocal.filehandler.ReadPhysicalSave();
+            OverviewFormlocal.VirtualMain = OverviewFormlocal.filehandler.ReadVirtualSave();
             if (OverviewFormlocal.filehandler.PhysicalMissing)
             {
                 PhysicalSaveFileStatus.Text = "MISSING";
@@ -65,7 +65,7 @@ namespace HomelabManagerblj
 
         private void ForgetPhysicalSave_Click(object sender, EventArgs e)
         {
-            
+
             OverviewFormlocal.config.PhysicalSaveFile = "PhysicalList.xml";
             XmlSerializer PhysicalSaver = new XmlSerializer(typeof(List<Physical>));
             using (TextWriter writer = new StreamWriter(OverviewFormlocal.config.PhysicalSaveFile))
@@ -102,7 +102,7 @@ namespace HomelabManagerblj
 
         private void FindPhysical_Click(object sender, EventArgs e)
         {
-            
+
             OpenFileDialog openPhysical = new OpenFileDialog();
             openPhysical.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
             if (openPhysical.ShowDialog() == DialogResult.OK)

@@ -11,13 +11,13 @@ namespace HomelabManagerblj
 {
     public class Physical
     {
-        public string IP { get;  set; }
-        public string Portal { get;  set; }
+        public string IP { get; set; }
+        public string Portal { get; set; }
         public string PortalLink { get; set; }
-        public string Name { get;  set; }
+        public string Name { get; set; }
         public bool IgnoreIP { get; set; }
         public bool IgnorePortal { get; set; }
-        public string Status { get;  set; }
+        public string Status { get; set; }
         public int StatusIconIndex = 0;
         public int ttl = 50;
         public int timeout = 1000;
@@ -105,7 +105,8 @@ namespace HomelabManagerblj
                 if (!IsValidIP(IP))
                 {
                     MessageBox.Show("IP is Invalid");
-                    IP = "X.X";
+                    IgnoreIP = true;
+                    IP = "None";
                 }
             }
             if (IgnoreIP && IgnorePortal)
@@ -125,7 +126,7 @@ namespace HomelabManagerblj
             }
             if (IgnoreIP)
             {
-                IP = "None.Set";
+                IP = "None";
             }
         }
         public void GetAddressFromLink(string portalLink)

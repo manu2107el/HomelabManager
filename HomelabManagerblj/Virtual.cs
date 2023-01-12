@@ -115,7 +115,8 @@ namespace HomelabManagerblj
                 if (!IsValidIP(IP))
                 {
                     MessageBox.Show("IP is Invalid");
-                    IP = "X.X";
+                    IgnoreIP = true;
+                    IP = "None";
                 }
             }
             if (IgnoreIP && IgnorePortal)
@@ -135,7 +136,7 @@ namespace HomelabManagerblj
             }
             if (IgnoreIP)
             {
-                IP = "None.Set";
+                IP = "None";
             }
         }
         public void GetAddressFromLink(string portalLink)

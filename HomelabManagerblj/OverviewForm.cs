@@ -14,11 +14,11 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace HomelabManagerblj
-{ 
+{
     public partial class OverviewForm : Form
-    { 
+    {
         public List<Physical> PhysicalMain { get; set; }
-        public List<Virtual> VirtualMain  { get; set; }
+        public List<Virtual> VirtualMain { get; set; }
         Physical Mother;
         public Config config = new Config();
         public Filehandler filehandler = new Filehandler();
@@ -38,29 +38,29 @@ namespace HomelabManagerblj
             filehandler.IntegrityCheck();
 
             LoadLists();
-     
+
             Refresh();
-            
+
         }
 
         public void Refresh()
         {
-            
+
             systemList.Items.Clear();
             int i = 0;
-           
-            
-            
+
+
+
             foreach (Physical systemList in PhysicalMain)
             {
                 systemList.StatusUpdate(config.ttl, config.timeout);
-                ListViewItem item = new ListViewItem(new[] { systemList.Name, systemList.IP, systemList.Portal, Convert.ToString(systemList.Status), "Is Physical"});
+                ListViewItem item = new ListViewItem(new[] { systemList.Name, systemList.IP, systemList.Portal, Convert.ToString(systemList.Status), "Is Physical" });
                 this.systemList.Items.Add(item);
-               
+
                 this.systemList.Items[i].Group = this.systemList.Groups[0];
                 this.systemList.Items[i].ImageIndex = systemList.StatusIconIndex;
                 i++;
-               
+
             }
             foreach (Virtual systemList in VirtualMain)
             {
@@ -70,38 +70,38 @@ namespace HomelabManagerblj
                 this.systemList.Items[i].Group = this.systemList.Groups[1];
                 this.systemList.Items[i].ImageIndex = systemList.StatusIconIndex;
                 i++;
-               
+
             }
             MotherSelector.Items.Clear();
             foreach (Physical systemList in PhysicalMain)
             {
                 MotherSelector.Items.Add(systemList);
             }
-            if(!NewPhsyicalRadioButton.Checked && !NewVirtualRadioButton.Checked)
+            if (!NewPhsyicalRadioButton.Checked && !NewVirtualRadioButton.Checked)
             {
                 CreateNewButton.Enabled = false;
             }
-            if(NewVirtualRadioButton.Checked || NewPhsyicalRadioButton.Checked)
+            if (NewVirtualRadioButton.Checked || NewPhsyicalRadioButton.Checked)
             {
                 CreateNewButton.Enabled = true;
             }
-            
+
         }
-        
+
 
         public void OpenDetails()
         {
-            
+
             foreach (ListViewItem item in systemList.SelectedItems)
             {
                 Physical Psystem = PhysicalMain.FirstOrDefault(o => o.Name == item.Text);
                 if (Psystem != null)
                 {
-                    
-                        PhysicalSystemDetailForm detailForm = new PhysicalSystemDetailForm(this, Psystem);
-                        detailForm.Show();
-                 
-               
+
+                    PhysicalSystemDetailForm detailForm = new PhysicalSystemDetailForm(this, Psystem);
+                    detailForm.Show();
+
+
                 }
                 Virtual vsystem = VirtualMain.FirstOrDefault(o => o.Name == item.Text);
                 if (vsystem != null)
@@ -155,19 +155,19 @@ namespace HomelabManagerblj
                 VirtualSaver.Serialize(writer, VirtualMain);
             }
         }
-        
+
         public void LoadLists()
         {
             PhysicalMain = filehandler.ReadPhysicalSave();
             VirtualMain = filehandler.ReadVirtualSave();
-            if (filehandler.FileError) 
-            { 
+            if (filehandler.FileError)
+            {
                 MissingListDialog missingListDialog = new MissingListDialog(this);
                 missingListDialog.ShowDialog();
             }
 
         }
-        
+
         private void NewPhsyicalRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (NewPhsyicalRadioButton.Checked)
@@ -186,10 +186,12 @@ namespace HomelabManagerblj
 
         private void KumaPanelButton_Click(object sender, EventArgs e)
         {
-            try { 
-                System.Diagnostics.Process.Start(config.overviewPage); 
+            try
+            {
+                System.Diagnostics.Process.Start(config.overviewPage);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("Please Make sure there is a Valid Web Link\n(with http(s)://)  Saved in Settings -> Overview Website");
             }
         }
@@ -296,7 +298,7 @@ namespace HomelabManagerblj
                             MessageBox.Show("Please Make sure your link is valid (with http(s)://)");
                             newPortal = "Invalid.Set";
                         }
-                        
+
                     }
                     else
                     {
@@ -308,7 +310,7 @@ namespace HomelabManagerblj
                     Physical system = new Physical();
                     system.Name = newName;
                     system.IP = newIP;
-                    system.Portal= newPortal;
+                    system.Portal = newPortal;
                     system.PortalLink = newPortalLink;
                     system.IgnorePortal = ignorePortal;
                     system.IgnoreIP = ignoreIP;
@@ -377,7 +379,7 @@ namespace HomelabManagerblj
                             MessageBox.Show("Please Make sure your link is valid (with http(s)://)");
                             newPortal = "Invalid.Set";
                         }
-                        
+
                     }
                     else
                     {
@@ -421,7 +423,7 @@ namespace HomelabManagerblj
         {
             if (NoneBox2.Checked)
             {
-                NewAddress.Enabled=false;
+                NewAddress.Enabled = false;
             }
             if (!NoneBox2.Checked)
             {
@@ -433,11 +435,11 @@ namespace HomelabManagerblj
         {
             if (NoneBox1.Checked)
             {
-                NewIP.Enabled=false ;
+                NewIP.Enabled = false;
             }
             if (!NoneBox1.Checked)
             {
-                NewIP.Enabled= true ;
+                NewIP.Enabled = true;
             }
         }
         public bool IsValidIP(string ip)
@@ -493,5 +495,5 @@ namespace HomelabManagerblj
             }
         }
     }
-    
+
 }

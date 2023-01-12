@@ -288,7 +288,7 @@
             this.groupBox3.Size = new System.Drawing.Size(337, 74);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ping Time to Load";
+            this.groupBox3.Text = "TTL and Timeout";
             // 
             // TimeoutLabel
             // 

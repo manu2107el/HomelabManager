@@ -15,7 +15,7 @@ namespace HomelabManagerblj
         Physical physical;
         OverviewForm overviewForm;
         List<Virtual> children = new List<Virtual>();
-        
+
         public PhysicalSystemDetailForm(OverviewForm form, Physical system)
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace HomelabManagerblj
 
         private void DetailForm_Load(object sender, EventArgs e)
         {
-            
+
             if (physical.IgnoreIP)
             {
                 DisableIPCheckbox.Checked = true;
@@ -98,16 +98,16 @@ namespace HomelabManagerblj
             PhysicalSystemNameLabel.Text = physical.Name;
             PhysicalSystemStatusLabel.Text = physical.Status;
             FindChildren();
-                ChildrenCountLabel.Text = Convert.ToString(ListChildren());
-            
+            ChildrenCountLabel.Text = Convert.ToString(ListChildren());
+
             StatusPictureBox.Image = imageList2.Images[physical.StatusIconIndex];
-            
+
             Application.DoEvents();
         }
         public void FindChildren()
         {
             children.Clear();
-            foreach(Virtual system in overviewForm.VirtualMain)
+            foreach (Virtual system in overviewForm.VirtualMain)
             {
                 if (system.Mother.Name == physical.Name)
                 {
@@ -115,11 +115,11 @@ namespace HomelabManagerblj
                 }
             }
         }
-       
+
         public int ListChildren()
         {
             ChildrenList.Items.Clear();
-           
+
             int i = 0;
             foreach (Virtual systemList in children)
             {
@@ -152,12 +152,12 @@ namespace HomelabManagerblj
                 Virtual vsystem = overviewForm.VirtualMain.FirstOrDefault(o => o.Name == item.Text);
                 if (vsystem != null)
                 {
-                    VirtualSystemDetailForm detailForm = new VirtualSystemDetailForm(overviewForm,  vsystem);
+                    VirtualSystemDetailForm detailForm = new VirtualSystemDetailForm(overviewForm, vsystem);
                     detailForm.Show();
                 }
             }
         }
-       
+
 
         private void saveSettings_Click(object sender, EventArgs e)
         {
@@ -188,6 +188,6 @@ namespace HomelabManagerblj
             Refresh();
         }
 
-       
+
     }
 }

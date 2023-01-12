@@ -13,11 +13,11 @@ namespace HomelabManagerblj
     {
         public bool PhysicalMissing { get; set; }
         public bool VirtualMissing { get; set; }
-        public bool PhysicalBroken =false;
-        public bool VirtualBroken =false;
+        public bool PhysicalBroken = false;
+        public bool VirtualBroken = false;
         public bool FileError { get; set; }
         Config config = new Config();
-        
+
         public Config LoadConfig()
         {
             if (!File.Exists("Config.xml"))
@@ -77,14 +77,14 @@ namespace HomelabManagerblj
                     return physicals;
                 }
             }
-            catch(FileNotFoundException)
+            catch (FileNotFoundException)
             {
                 FileError = true;
                 return physicals;
             }
             catch (InvalidOperationException)
             {
-                PhysicalBroken=true;
+                PhysicalBroken = true;
                 FileError = true;
                 return physicals;
             }
@@ -98,7 +98,7 @@ namespace HomelabManagerblj
                 using (TextReader reader = new StreamReader(config.VirtualSaveFile))
                 {
                     virtuals = (List<Virtual>)VirtualLoader.Deserialize(reader);
-                    VirtualBroken=false;
+                    VirtualBroken = false;
                     return virtuals;
                 }
             }
@@ -150,6 +150,6 @@ namespace HomelabManagerblj
                 return Virtuals;
             }
         }
-       
+
     }
 }
